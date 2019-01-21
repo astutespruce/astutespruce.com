@@ -2,8 +2,10 @@ import React from 'react'
 
 import { Link } from 'components/Link'
 import { Flex } from 'components/Grid'
-import styled, { themeGet, themePx } from 'util/style'
+import styled, { themeGet } from 'util/style'
+import {hasWindow } from 'util/dom'
 import { nav } from '../../../config/nav'
+
 
 const NavBar = styled(Flex)`
   flex-grow: 1;
@@ -30,9 +32,6 @@ const NavLink = styled(Link)`
     transition: border-bottom-color 0.5s;
   }
 `
-
-// make sure that window is available (not available in Gatsby build)
-const hasWindow = typeof window !== 'undefined' && window
 
 const isActive = path => hasWindow && window.location.pathname.startsWith(path)
 

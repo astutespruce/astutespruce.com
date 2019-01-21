@@ -30,6 +30,9 @@ const AboutPage = ({ data: { headerImage } }) => (
         with real-world applications.
       </p>
     </Container>
+    {/* <Container>
+      <h2>CV</h2>
+    </Container> */}
   </Layout>
 )
 
