@@ -24,6 +24,7 @@ const typography = new Typography({
     html: {
       height: '100%',
       overflowY: 'auto',
+      minWidth: '440px',
     },
     body: {
       height: '100%',
@@ -35,6 +36,9 @@ const typography = new Typography({
     },
     'a:hover': {
       textDecoration: 'underline',
+    },
+    'h1, h2, h3, h4, h5': {
+      color: theme.colors.grey[500],
     },
   }),
 })

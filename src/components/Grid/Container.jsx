@@ -6,6 +6,7 @@ import { theme } from 'util/style/theme'
 
 const Container = styled(Box)`
   max-width: ${props => props.maxWidth};
+  padding: 1rem;
 `
 
 Container.propTypes = {

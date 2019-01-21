@@ -8,6 +8,11 @@ import Navigation from './Navigation'
 
 const Title = styled.h1`
   margin: 0 1em 0 0;
+  font-size: 2rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.25rem;
+  }
 
   & * {
     color: ${themeGet('colors.grey.500')};
@@ -23,18 +28,14 @@ const Wrapper = styled(Flex)`
   a:hover {
     text-decoration: none;
   }
-  /* padding: ${themePx('space.3')} ${themePx('space.3')};
-  margin-bottom: ${themePx('space.4')}; */
 `
 
 const Header = ({ siteTitle }) => (
   <Wrapper as="header" alignItems="center" justifyContent="space-between">
-    {/* <Container> */}
     <Title>
       <Link to="/">{siteTitle}</Link>
     </Title>
     <Navigation />
-    {/* </Container> */}
   </Wrapper>
 )
 
