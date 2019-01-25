@@ -59,7 +59,8 @@ const IndexPage = ({ data: { image } }) => (
         <br />
         <br />
         I partner with science-based organizations to amplify the impact of
-        their work for a healthier world.
+        their work for a healthier world. Healthier ecosystems. Healthier
+        societies.
         <br />
         <br />I develop highly customized web applications and other software
         solutions to real-world problems.

@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, withPrefix } from 'gatsby'
 
 import Layout from 'components/Layout'
-import { Container } from 'components/Grid'
+import { Container, Flex } from 'components/Grid'
+import { Link } from 'components/Link'
 import SEO from 'components/SEO'
 import { FluidImage } from 'components/Image'
+// import CV from 'static/Brendan_C_Ward__CV.pdf'
 
 const AboutPage = ({ data: { headerImage } }) => (
   <Layout>
@@ -25,14 +27,43 @@ const AboutPage = ({ data: { headerImage } }) => (
         a healthier world.
         <br />
         <br />
-        Brendan combines an MS in Landscape Ecology with over a decade of
-        applied experience developing software solutions that bridge science
-        with real-world applications.
+        Brendan is passionate about bridging science with real-world
+        applications. He combines a Master&apos;s of Science in Landscape
+        Ecology with over a decade of experience developing software solutions.
+        <br />
+        <br />
+        He has led software teams to create groundbreaking solutions to data
+        sharing and visualization needs. Brendan has helped empower decision
+        makers and stakeholders by building software that leverages the best
+        available scientific data with cutting-edge technology to increase
+        positive impact. He has partnered with scientists to streamline their
+        data processing to derive more value from less manual labor. He has
+        collaborated with government agencies, conservation non-profits, and
+        others to amplify the impact of their work.
+        <br />
+        <br />
+        Every step of the way, Brendan combines a passion for empowering
+        organizations and individuals with better tools and data. He brings a
+        strong attention to detail and a creative spark to meld innovation with
+        high-quality results. He is a strong collaborator and actively engages
+        partners throughout all stages of his work. Through his careful focus on
+        maximizing impact, his projects are more effective and intuitive than
+        many out-of-the-box solutions.
       </p>
     </Container>
-    {/* <Container>
-      <h2>CV</h2>
-    </Container> */}
+    <Container>
+      <Flex justifyContent="space-between">
+        <h2>CV</h2>
+        <div>
+          <a
+            href={withPrefix('Brendan_C_Ward__CV.pdf')}
+            download="Brendan_C_Ward__CV.pdf"
+          >
+            Download PDF
+          </a>
+        </div>
+      </Flex>
+    </Container>
   </Layout>
 )
 
