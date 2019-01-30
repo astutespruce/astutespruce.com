@@ -4,10 +4,11 @@ import { graphql, withPrefix } from 'gatsby'
 
 import Layout from 'components/Layout'
 import { Container, Flex } from 'components/Grid'
-import { Link } from 'components/Link'
+import { OutboundLink } from 'components/Link'
 import SEO from 'components/SEO'
 import { FluidImage } from 'components/Image'
-// import CV from 'static/Brendan_C_Ward__CV.pdf'
+import CVItem from 'components/CVItem'
+import Divider from 'components/elements/Divider'
 
 const AboutPage = ({ data: { headerImage } }) => (
   <Layout>
@@ -50,10 +51,11 @@ const AboutPage = ({ data: { headerImage } }) => (
         maximizing impact, his projects are more effective and intuitive than
         many out-of-the-box solutions.
       </p>
-    </Container>
-    <Container>
-      <Flex justifyContent="space-between">
-        <h2>CV</h2>
+
+      <Divider />
+
+      <Flex justifyContent="space-between" flexWrap="wrap">
+        <h2>Curriculum vitae</h2>
         <div>
           <a
             href={withPrefix('Brendan_C_Ward__CV.pdf')}
@@ -63,6 +65,96 @@ const AboutPage = ({ data: { headerImage } }) => (
           </a>
         </div>
       </Flex>
+
+      <div>
+        <CVItem
+          dates={[2019, 'present']}
+          title="Owner | Lead Software Engineer, Astute Spruce, LLC"
+          location="Corvallis, OR"
+        >
+          <p>
+            I work collaboratively with science-based organizations to develop
+            highly-customized software solutions for real-world problems.
+          </p>
+        </CVItem>
+
+        <CVItem
+          dates={[2007, 'present']}
+          title="Chief Software Engineer, Conservation Biology Insitute"
+          location="Corvallis, OR"
+        >
+          <p>
+            I lead CBI’s software development team to create tools and platforms
+            that empower the conservation community to share, visualize,
+            interpret, and apply geospatial data. I leverage my unique talents
+            and background at the fusion point between science and software
+            engineering.
+          </p>
+          <ul>
+            <li>
+              Full stack software engineering across broad range of
+              applications, using Python, modern Javascript, and Go
+            </li>
+            <li>
+              Work closely with scientists and clients to co-design highly
+              effective, intuitive, and innovative data visualization and
+              communication applications that allow them to deliver high value
+              information
+            </li>
+            <li>
+              Contribute to CBI strategic direction and business development
+            </li>
+            <li>
+              Lead Data Basin, a multi-million dollar, groundbreaking geospatial
+              data sharing and collaboration platform used by over 20k
+              registered users
+            </li>
+            <li>
+              Write successful proposals and manage multi-disciplinary projects
+              (won projects totalling over $500K; led projects totalling over
+              $1.5M)
+            </li>
+            <li>
+              Recruit and supervise staff, manage team operations, and oversee
+              staff development
+            </li>
+          </ul>
+        </CVItem>
+
+        <CVItem
+          dates={[2004, 2007]}
+          title="Biological Scientist / GIS Specialist, U.S. Forest Service"
+          location="Missoula, MT"
+        >
+          <p>
+            I led the team responsible for mapping and modeling historical fire
+            regimes across U.S. as part of the{' '}
+            <OutboundLink from="/about" to="https://www.landfire.gov/" target="_blank">
+              LANDFIRE project
+            </OutboundLink>
+            .
+          </p>
+          <ul>
+            <li>
+              Added value across the entire project by contributing major
+              improvements to data acquisition, processing, and products; these
+              improvements saved thousands of dollars in computing and labor
+              costs and expanded the diversity and value of project products
+            </li>
+            <li>
+              Directly applied software engineering skills to improve simulation
+              model internals resulting in major decreases in processing time,
+              and engineer new tools to leverage machine learning for
+              classifying and mapping vegetation types using remotely sensed
+              imagery at landscape scales
+            </li>
+          </ul>
+        </CVItem>
+
+        <CVItem dates={[2002, 2004]} title="Master's of Science - Forest Ecology, University of Wisconsin - Madison" location="Madison, WI" />
+
+        <CVItem dates={[1998, 2002]} title="Bachelor's of Science - Environmental Science, Western Washington University" location="Bellingham, WA" />
+      </div>
     </Container>
   </Layout>
 )

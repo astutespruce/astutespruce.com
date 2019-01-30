@@ -38,7 +38,7 @@ const typography = new Typography({
       textDecoration: 'underline',
     },
     'h1, h2, h3, h4, h5': {
-      color: theme.colors.grey[500],
+      color: theme.colors.grey[700],
     },
   }),
 })

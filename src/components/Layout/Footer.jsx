@@ -57,7 +57,7 @@ const Footer = () => (
 
       <ul>
         {nav.map(({ path, label }) => (
-          <li>
+          <li key={path}>
             <Link key={path} to={path}>
               {label}
             </Link>
@@ -68,6 +68,7 @@ const Footer = () => (
       <ul>
         <li>
           <OutboundLink
+          from="/"
             to="https://www.linkedin.com/in/brendan-c-ward/"
             target="_blank"
             rel="noopener noreferrer"
@@ -77,6 +78,7 @@ const Footer = () => (
         </li>
         <li>
           <OutboundLink
+          from="/"
             to="https://github.com/astutespruce"
             target="_blank"
             rel="noopener noreferrer"
@@ -86,6 +88,7 @@ const Footer = () => (
         </li>
         <li>
           <OutboundLink
+          from="/"
             to="https://github.com/brendan-ward"
             target="_blank"
             rel="noopener noreferrer"
@@ -95,6 +98,7 @@ const Footer = () => (
         </li>
         <li>
           <OutboundLink
+          from="/"
             to="https://medium.com/@brendan_ward"
             target="_blank"
             rel="noopener noreferrer"
