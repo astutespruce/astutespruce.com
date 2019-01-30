@@ -69,7 +69,8 @@ const AboutPage = ({ data: { headerImage } }) => (
       <div>
         <CVItem
           dates={[2019, 'present']}
-          title="Owner | Lead Software Engineer, Astute Spruce, LLC"
+          title="Owner & Lead Software Engineer"
+          organization="Astute Spruce, LLC"
           location="Corvallis, OR"
         >
           <p>
@@ -80,7 +81,8 @@ const AboutPage = ({ data: { headerImage } }) => (
 
         <CVItem
           dates={[2007, 'present']}
-          title="Chief Software Engineer, Conservation Biology Insitute"
+          title="Chief Software Engineer"
+          organization="Conservation Biology Insitute"
           location="Corvallis, OR"
         >
           <p>
@@ -123,13 +125,18 @@ const AboutPage = ({ data: { headerImage } }) => (
 
         <CVItem
           dates={[2004, 2007]}
-          title="Biological Scientist / GIS Specialist, U.S. Forest Service"
+          title="Biological Scientist / GIS Specialist"
+          organization="U.S. Forest Service"
           location="Missoula, MT"
         >
           <p>
             I led the team responsible for mapping and modeling historical fire
             regimes across U.S. as part of the{' '}
-            <OutboundLink from="/about" to="https://www.landfire.gov/" target="_blank">
+            <OutboundLink
+              from="/about"
+              to="https://www.landfire.gov/"
+              target="_blank"
+            >
               LANDFIRE project
             </OutboundLink>
             .
@@ -151,9 +158,19 @@ const AboutPage = ({ data: { headerImage } }) => (
           </ul>
         </CVItem>
 
-        <CVItem dates={[2002, 2004]} title="Master's of Science - Forest Ecology, University of Wisconsin - Madison" location="Madison, WI" />
+        <CVItem
+          dates={[2004]}
+          title="Master's of Science - Forest Ecology"
+          organization="University of Wisconsin - Madison"
+          location="Madison, WI"
+        />
 
-        <CVItem dates={[1998, 2002]} title="Bachelor's of Science - Environmental Science, Western Washington University" location="Bellingham, WA" />
+        <CVItem
+          dates={[2002]}
+          title="Bachelor's of Science - Environmental Science"
+          organization="Western Washington University"
+          location="Bellingham, WA"
+        />
       </div>
     </Container>
   </Layout>

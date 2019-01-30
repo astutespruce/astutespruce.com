@@ -9,7 +9,7 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Cinzel',
-      styles: ['700'],
+      styles: ['700', '900'],
     },
     {
       name: 'Exo+2',

@@ -11,11 +11,11 @@ const containerWidth = '960px'
  * Grey: Colors for items that are not that important
  */
 const colors = {
-  background: '#f4f9f4',
+  background: '#f8faf9', // same as main green + 11
   white: 'hsl(0, 0%, 100%)',
   black: '#0c0c0c', // same as grey.900
   grey: {
-    100: '#b6b6b6', // grey + 10
+    100: '#e9e9e9', // grey + 16
     200: '#9c9c9c', // grey + 7
     300: '#8b8b8b', // grey + 5
     400: '#7a7a7a', // grey + 3
@@ -29,7 +29,7 @@ const colors = {
     700: '#d34848',
   },
   primary: {
-    100: '#f4f9f4', // lighted green from palette
+    100: '#f8faf9', // + 11
     200: '#c6d8ca', // + 6
     300: '#b2cab7', // + 4
     400: '#9ebca5', // + 2
