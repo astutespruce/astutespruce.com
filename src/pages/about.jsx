@@ -9,6 +9,7 @@ import SEO from 'components/SEO'
 import { FluidImage } from 'components/Image'
 import CVItem from 'components/CVItem'
 import Divider from 'components/elements/Divider'
+import LightText from 'components/elements/LightText'
 
 const AboutPage = ({ data: { headerImage } }) => (
   <Layout>
@@ -92,6 +93,11 @@ const AboutPage = ({ data: { headerImage } }) => (
             and background at the fusion point between science and software
             engineering.
           </p>
+          <LightText>
+            Note: From 12/31/2018, I have been transitioning out of this role to
+            focus on completing projects prior to moving to Astute Spruce full
+            time in April, 2019.
+          </LightText>
           <ul>
             <li>
               Full stack software engineering across broad range of

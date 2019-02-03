@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import Layout from 'components/Layout'
-import { Container } from 'components/Grid'
+import { Box, Container } from 'components/Grid'
 import SEO from 'components/SEO'
 import { FluidImage } from 'components/Image'
 

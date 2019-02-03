@@ -1,4 +1,5 @@
-const breakpoints = ['40em', '52em', '64em']
+// const breakpoints = ['40em', '52em', '64em']
+const breakpoints = ['768px', '1024px', '1216px']
 
 const containerWidth = '960px'
 
@@ -83,7 +84,19 @@ const space = [0, 4, 8, 16, 32, 64, 128, 256, 512]
 /**
  * Typographic scale
  */
-const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96, 128]
+// base font size is 20
+const fontSizes = [
+  '0.5rem',
+  '0.75rem',
+  '0.9rem',
+  '1rem',
+  '1.25rem',
+  '1.5rem',
+  '2rem',
+  '3rem',
+  '4rem',
+]
+// const fontSizes = [10, 12, 14, 16, 20, 24, 32, 48, 64, 96, 128]
 
 const lineHeights = [1, 1.125, 1.25, 1.5]
 
