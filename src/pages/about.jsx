@@ -44,13 +44,13 @@ const AboutPage = ({ data: { headerImage } }) => (
         others to amplify the impact of their work.
         <br />
         <br />
-        Every step of the way, Brendan combines a passion for empowering
-        organizations and individuals with better tools and data. He brings a
-        strong attention to detail and a creative spark to meld innovation with
-        high-quality results. He is a strong collaborator and actively engages
-        partners throughout all stages of his work. Through his careful focus on
-        maximizing impact, his projects are more effective and intuitive than
-        many out-of-the-box solutions.
+        Every step of the way, Brendan combines a passion for expanding the
+        impact of organizations and individuals with better tools and data. He
+        brings a strong attention to detail and a creative spark to meld
+        innovation with high-quality results. He is a strong collaborator and
+        actively engages partners throughout all stages of his work. Through his
+        careful focus on maximizing impact, his projects are more effective and
+        intuitive than many out-of-the-box solutions.
       </p>
 
       <Divider />

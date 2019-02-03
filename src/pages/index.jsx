@@ -11,7 +11,6 @@ import styled from 'util/style'
 
 const Hero = styled(Container)`
   margin-top: 3rem;
-  margin-bottom: 3rem;
   h1 {
     font-size: 6rem;
     @media screen and (max-width: 768px) {

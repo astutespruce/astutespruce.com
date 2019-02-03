@@ -7,7 +7,7 @@ const OutboundLink = ({ to, from, target, children, className }) => (
     href={to}
     target={target}
     className={className}
-    rel="noopener"
+    rel="noopener noreferrer"
     onClick={() => {
       GoogleAnalytics.event({
         category: 'Outbound Link',
@@ -29,7 +29,7 @@ OutboundLink.propTypes = {
 }
 
 OutboundLink.defaultProps = {
-  target: ``,
+  target: '_blank',
   className: ``,
 }
 
