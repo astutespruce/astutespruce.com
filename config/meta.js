@@ -6,7 +6,7 @@ module.exports = {
     themeColor: `#c4e3cb`,
     backgroundColor: `#c4e3cb`,
   },
-  googleAnalyticsId: `UA-XXXXX`,
+  googleAnalyticsId: `UA-133674686-1`,
   // facebook: `Your optional Facebook App ID`,
   // twitter: `Your Twitter username`,
   schema: {

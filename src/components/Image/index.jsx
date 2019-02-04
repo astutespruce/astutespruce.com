@@ -1,3 +1,4 @@
 import FluidImage from './Fluid'
+import InsetFluidImage from './InsetFluid'
 
-export { FluidImage }
+export { FluidImage, InsetFluidImage }

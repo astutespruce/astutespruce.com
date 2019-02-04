@@ -5,9 +5,9 @@ import { graphql } from 'gatsby'
 import Layout from 'components/Layout'
 import SEO from 'components/SEO'
 import { Container } from 'components/Grid'
-import { FluidImage } from 'components/Image'
+import { FluidImage, InsetFluidImage } from 'components/Image'
 
-import styled from 'util/style'
+import styled, { themeGet } from 'util/style'
 
 const Hero = styled(Container)`
   margin-top: 3rem;
@@ -37,23 +37,37 @@ const Hero = styled(Container)`
 `
 
 const Section = styled(Container)`
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  clear: both;
+  padding: 3rem 1rem;
+  border-top: 1px solid ${themeGet('colors.grey.100')};
 
+  h3,
   h4 {
     margin-bottom: 0.5rem;
   }
 
-  ul + h4 {
-    margin-top: 4rem;
+  ul {
+    margin-bottom: 0;
   }
 
   p + ul {
     margin-top: -1rem;
   }
+
+  .clear {
+    clear: both;
+  }
 `
 
-const IndexPage = ({ data: { image } }) => (
+const IndexPage = ({
+  data: {
+    fluidImage1,
+    imageShane,
+    image43698185622,
+    imageHelloquence,
+    imageAgathe,
+  },
+}) => (
   <Layout>
     <SEO title="Home" />
     <Hero>
@@ -83,16 +97,18 @@ const IndexPage = ({ data: { image } }) => (
     </Hero>
 
     <FluidImage
-      image={image.childImageSharp.fluid}
+      image={fluidImage1.childImageSharp.fluid}
       credits={{
         url: 'https://unsplash.com/photos/_lofCeUHMOo',
         author: 'Patrick Hendry',
       }}
     />
 
-    <Section>
+    <Section style={{ borderTop: 'none' }}>
       <h2>What makes me different?</h2>
-      <h4>I bridge science and software.</h4>
+
+      <h3>I bridge science and software.</h3>
+
       <p>
         With an advanced degree in landscape ecology and over 13 years
         professional experience in software engineering and geospatial
@@ -115,12 +131,24 @@ const IndexPage = ({ data: { image } }) => (
           application inspired by my science background. Often at the outset,
           the character of a new application is a bit unclear, and we discover
           it through the process of experimenting with different approaches and
-          ways of presenting information to find the best fit. Each experiment
-          informs our process and leads to a better outcome.
+          ways of presenting information to find the best fit.
         </li>
       </ul>
+    </Section>
 
-      <h4>I focus on impact.</h4>
+    <Section>
+      <InsetFluidImage
+        image={imageShane.childImageSharp}
+        // credits={{
+        //   url: 'https://unsplash.com/photos/DNkoNXQti3c',
+        //   author: 'Shane Rounce',
+        // }}
+        width="320px"
+        float="left"
+      />
+
+      <h3>I focus on impact.</h3>
+
       <p>
         The internet is filled with half-hearted applications that allow users
         to see data, but no clear actionable outcome. You know what? Those
@@ -145,8 +173,21 @@ const IndexPage = ({ data: { image } }) => (
           ultimately trying to achieve.
         </li>
       </ul>
+    </Section>
 
-      <h4>I am highly collaborative.</h4>
+    <Section>
+      <InsetFluidImage
+        image={imageHelloquence.childImageSharp}
+        // credits={{
+        //   url: 'https://unsplash.com/photos/5fNmWej4tAA',
+        //   author: 'Helloquence',
+        // }}
+        width="320px"
+        float="right"
+      />
+
+      <h3>I am highly collaborative.</h3>
+
       <p>
         I firmly believe that we are going to achieve higher impact, together.
         While I am very self-driven and highly successful at working
@@ -165,8 +206,21 @@ const IndexPage = ({ data: { image } }) => (
           implementation, and hosting options.
         </li>
       </ul>
+    </Section>
 
-      <h4>I am pragmatic and focused on simplicity.</h4>
+    <Section>
+      <InsetFluidImage
+        image={imageAgathe.childImageSharp}
+        // credits={{
+        //   url: 'https://unsplash.com/photos/0Izsy1Uy308',
+        //   author: 'Agathe Marty',
+        // }}
+        width="320px"
+        float="left"
+      />
+
+      <h3>I am pragmatic and focused on simplicity.</h3>
+
       <p>
         It is easy to get caught up in hype and shiny tools. The tools are only
         a means to an end: if those tools are too complex, we spend all our time
@@ -175,8 +229,9 @@ const IndexPage = ({ data: { image } }) => (
         adding power tools for advanced users - only to find in the process that
         they’ve alienated their core audience and missed their opportunity to
         have real impact.
-        <br />
-        <br />
+      </p>
+
+      <p>
         Instead, I focus on distilling things down as much as possible, to
         create a simple, intuitive experience. In practice, this is very
         difficult: simplicity is significantly more valuable over the long term
@@ -185,17 +240,30 @@ const IndexPage = ({ data: { image } }) => (
         <br />
         What this means for you:
       </p>
+
       <ul>
         <li>
-          While I actively keep up on the latest trends and tools, and indeed
-          even create open source libraries using some of them, I only leverage
-          tools and approaches that best meet the need at hand with the lowest
-          effort over the long term. Sometimes, a far simpler but less hyped
-          solution is far superior over the long term.
+          While I actively keep up on the latest trends and tools, I only
+          leverage tools and approaches that best meet the need at hand with the
+          lowest effort over the long term. Sometimes, a far simpler but less
+          hyped solution is far superior over the long term.
         </li>
       </ul>
+    </Section>
 
-      <h4>I am open source by default</h4>
+    <Section>
+      <InsetFluidImage
+        image={image43698185622.childImageSharp}
+        // credits={{
+        //   url: 'https://www.flickr.com/photos/evergladesnps/43698185622/',
+        //   author: 'NPS',
+        // }}
+        width="320px"
+        float="right"
+      />
+
+      <h3>I am open source by default</h3>
+
       <p>
         I believe that our tools get better when they are shared with and used
         by more people, and that by openly sharing something of value, we get
@@ -226,9 +294,45 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query HomePageQuery {
-    image: file(relativePath: { eq: "patrick-hendry-431197-unsplash.jpg" }) {
+    fluidImage1: file(
+      relativePath: { eq: "patrick-hendry-431197-unsplash.jpg" }
+    ) {
       childImageSharp {
         fluid(maxWidth: 3200) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    imageShane: file(relativePath: { eq: "shane-rounce-682783-unsplash.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 480) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    imageHelloquence: file(
+      relativePath: { eq: "helloquence-61189-unsplash.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 480) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    image43698185622: file(
+      relativePath: { eq: "43698185622_500965906c_k.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 480) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    imageAgathe: file(
+      relativePath: { eq: "agathe-marty-651137-unsplash.jpg" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 480) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }

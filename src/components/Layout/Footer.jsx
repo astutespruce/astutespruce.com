@@ -25,12 +25,11 @@ const Wrapper = styled(Container)`
       margin-bottom: 0.25em;
     }
 
-    &:nth-child(2) {
-      padding: 1rem 4rem;
-      text-align: center;
-      border-left: 1px solid ${themeGet('colors.grey.300')};
-      border-right: 1px solid ${themeGet('colors.grey.300')};
-      height: 7rem;
+    @media screen and (max-width: ${themeGet('breakpoints.1')}) {
+      width: 100%;
+      border-top: 1px solid ${themeGet('colors.grey.300')};
+      margin-top: 1rem;
+      padding: 1rem 0 0;
     }
   }
 `
@@ -68,7 +67,7 @@ const Footer = () => (
       <ul>
         <li>
           <OutboundLink
-          from="/"
+            from="/"
             to="https://www.linkedin.com/in/brendan-c-ward/"
             target="_blank"
             rel="noopener noreferrer"
@@ -78,7 +77,7 @@ const Footer = () => (
         </li>
         <li>
           <OutboundLink
-          from="/"
+            from="/"
             to="https://github.com/astutespruce"
             target="_blank"
             rel="noopener noreferrer"
@@ -88,7 +87,7 @@ const Footer = () => (
         </li>
         <li>
           <OutboundLink
-          from="/"
+            from="/"
             to="https://github.com/brendan-ward"
             target="_blank"
             rel="noopener noreferrer"
@@ -98,7 +97,7 @@ const Footer = () => (
         </li>
         <li>
           <OutboundLink
-          from="/"
+            from="/"
             to="https://medium.com/@brendan_ward"
             target="_blank"
             rel="noopener noreferrer"
