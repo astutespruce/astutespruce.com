@@ -15,7 +15,6 @@ const Header = styled.div`
   margin-bottom: 0.5rem;
   h4 {
     margin-bottom: 0;
-    font-weight: 900;
   }
 `
 
