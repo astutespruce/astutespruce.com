@@ -25,7 +25,7 @@ const AboutPage = ({ data: { headerImage } }) => (
       <h1>Astute Spruce, LLC</h1>
       <p>
         <a href="mailto:bcward@astutespruce.com">Brendan C. Ward</a> founded
-        Astute Spruce in 2009 to work with science-based organizations to shape
+        Astute Spruce in 2019 to work with science-based organizations to shape
         a healthier world.
         <br />
         <br />
