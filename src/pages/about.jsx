@@ -7,7 +7,7 @@ import { Container, Flex } from 'components/Grid'
 import { OutboundLink } from 'components/Link'
 import SEO from 'components/SEO'
 import { FluidImage } from 'components/Image'
-import CVItem from 'components/CVItem'
+import { Education, Employment } from 'components/CV'
 import Divider from 'components/elements/Divider'
 import LightText from 'components/elements/LightText'
 
@@ -59,16 +59,18 @@ const AboutPage = ({ data: { headerImage } }) => (
         <h2>Curriculum vitae</h2>
         <div>
           <a
-            href={withPrefix('Brendan_C_Ward__CV.pdf')}
-            download="Brendan_C_Ward__CV.pdf"
+            href={withPrefix('Brendan_C_Ward__Resume.pdf')}
+            download="Brendan_C_Ward__Resume.pdf"
           >
-            Download PDF
+            Download Resume
           </a>
         </div>
       </Flex>
 
-      <div>
-        <CVItem
+      <h3>Work History</h3>
+
+      <section>
+        <Employment
           dates={[2019, 'present']}
           title="Owner & Lead Software Engineer"
           organization="Astute Spruce, LLC"
@@ -78,9 +80,9 @@ const AboutPage = ({ data: { headerImage } }) => (
             I work collaboratively with science-based organizations to develop
             highly-customized software solutions for real-world problems.
           </p>
-        </CVItem>
+        </Employment>
 
-        <CVItem
+        <Employment
           dates={[2007, 'present']}
           title="Chief Software Engineer"
           organization="Conservation Biology Insitute"
@@ -127,9 +129,72 @@ const AboutPage = ({ data: { headerImage } }) => (
               staff development
             </li>
           </ul>
-        </CVItem>
+          <h4>Highlighted Projects:</h4>
+          <ul>
+            <li>
+              2018-Present: Florida Climate Adaptation Explorer (funders: U.S.
+              Fish and Wildlife Service, Florida Wildlife Conservation
+              Commission). Role: project manager and sole software engineer.
+            </li>
+            <li>
+              2018-Present: Bat Acoustic Monitoring Platform - Bat Data
+              Visualization Tool (funder: U.S. Forest Service). Role: project
+              manager and lead software engineer.
+            </li>
+            <li>
+              2018-2019:{' '}
+              <OutboundLink
+                from="about"
+                to="https://connectivity.sarpdata.com/"
+                target="_blank"
+              >
+                Southeast Aquatic Barrier Prioritization Tool
+              </OutboundLink>{' '}
+              (funder: Southeast Aquatic Resources Partnership). Role: project
+              manager and sole software engineer.
+            </li>
+            <li>
+              2017-2019: Environmental Risk Screening Tool for Chinese Ministry
+              of Ecology and the Environment - Foreign Economic Cooperation
+              Office (funder: Paulson Institute). Role: project manager and lead
+              software engineer.
+            </li>
+            <li>
+              2014-2018:{' '}
+              <OutboundLink
+                from="about"
+                to="https://blueprint.southatlanticlcc.org/"
+                target="_blank"
+              >
+                South Atlantic Landscape Conservation Cooperative Conservation
+                Blueprint Simple Viewer
+              </OutboundLink>{' '}
+              (funder: U.S. Fish and Wildlife Service). Role: project manager
+              and lead software engineer.
+            </li>
+            <li>
+              2016: California Water Planning and Information Exchange - Data
+              Basin Pilot (funder: California Department of Water Resources).
+              Role: project manager, lead software engineer, and co-wrote final
+              report.
+            </li>
+            <li>
+              2012-2014: Landscape Conservation Cooperative Network - Integrated
+              Data Management Network (funders: U.S. Fish and Wildlife Service,
+              U.S. Geological Survey). Role: co-led the &quot;Toolshed&quot;
+              working group and co-wrote the &quot;Toolshed&quot; final report.{' '}
+            </li>
+            <li>
+              2011-2012: Rapid Ecoregional Assessments for the Sonoran Desert
+              and Colorado Plateau (funder: Bureau of Land Management). Role:
+              data management lead responsible for preparation, standardization,
+              and delivery of several hundred geospatial datasets; created fire
+              and invasive species predictive models; co-wrote final reports.
+            </li>
+          </ul>
+        </Employment>
 
-        <CVItem
+        <Employment
           dates={[2004, 2007]}
           title="Biological Scientist / GIS Specialist"
           organization="U.S. Forest Service"
@@ -162,22 +227,123 @@ const AboutPage = ({ data: { headerImage } }) => (
               imagery at landscape scales
             </li>
           </ul>
-        </CVItem>
+        </Employment>
+      </section>
 
-        <CVItem
+      <Divider />
+
+      <h3>Education:</h3>
+      <section>
+        <Education
           dates={[2004]}
           title="Master's of Science - Forest Ecology"
           organization="University of Wisconsin - Madison"
           location="Madison, WI"
-        />
+        >
+          <p>
+            Thesis:{' '}
+            <i>
+              Landscape-level effects of the interaction between residential
+              development and public forest management in northern Wisconsin,
+              USA.
+            </i>
+          </p>
+        </Education>
 
-        <CVItem
+        <Education
           dates={[2002]}
           title="Bachelor's of Science - Environmental Science"
           organization="Western Washington University"
           location="Bellingham, WA"
-        />
-      </div>
+        >
+          <p>
+            Thesis:{' '}
+            <i>
+              A simple rule-based simulation approach to modeling windthrow in
+              forests of the western Cascade Mountains of Oregon.
+            </i>
+          </p>
+        </Education>
+      </section>
+
+      <Divider />
+
+      <h3>Publications:</h3>
+      <section>
+        <p>
+          Scheller, R.M., W.D. Spencer, H. Rustigian-Romsos, A.D. Syphard,{' '}
+          <b>B.C. Ward</b>, and J.R. Strittholt. 2011. Using stochastic
+          simulation to evaluate competing risks of wildfires and fuels
+          management on an isolated forest carnivore. Landscape Ecology 26:
+          1491-1504.
+          <br />
+          <br />
+          Syphard, A.D., R.M. Scheller, <b>B.C. Ward</b>, W.D. Spencer, and J.R.
+          Strittholt. 2011. Simulating landscape-scale effects of fuels
+          treatments in the Sierra Nevada, California, USA. International
+          Journal of Wildland Fire 20:364-383.
+          <br />
+          <br />
+          Scheller, R.M., E.J. Gustafson, B.R. Sturtevant, <b>B.C. Ward</b>, and
+          D.J. Mladenoff. 2010. Increasing the research and management value of
+          ecological models using modern software techniques. Frontiers in
+          Ecology and the Environment 8(5): 253-260.
+          <br />
+          <br />
+          <b>Ward, B.C.</b>, D.J. Mladenoff, and R.M. Scheller. 2005. Simulating
+          landscape-level effects of constraints to public forest regeneration
+          harvests due to adjacent residential development in northern
+          Wisconsin. Forest Science 51(6): 616-632.
+        </p>
+      </section>
+
+      <Divider />
+
+      <h3>Technical Reports:</h3>
+      <p>
+        <b>Ward, B.C.</b>, M. Lundin, D. Harvey, J. Strittholt, G. Joseph, T.
+        Comendant. 2016. California Water Planning Information Exchange (Water
+        PIE) - Data Basin Pilot. Prepared for the California Department of Water
+        Resources.
+        <br />
+        <br />
+        Multiple authors. 2014. Landscape Conservation Cooperative - Integrated
+        Data Management Network - Toolshed. Prepared for the U.S. Fish and
+        Wildlife Service.{' '}
+        <OutboundLink
+          to="https://lccnetwork.org/project/integrated-data-management-network-lccs-and-partners-framework-coordinated-data-discovery-0"
+          target="_blank"
+          from="about"
+        >
+          More information.
+        </OutboundLink>
+        <br />
+        <br />
+        Strittholt, J.R., S.A. Bryce, <b>B.C. Ward</b>, and D.M. Bachelet. 2012.
+        Sonoran Desert Rapid Ecoregional Assessment Report. Prepared for the
+        U.S. Department of the Interior, Bureau of Land Management, Denver,
+        Colorado.{' '}
+        <OutboundLink
+          from="about"
+          to="https://landscape.blm.gov/REA_General_Docs/SOD_Final_Report_Body.pdf"
+          target="_blank"
+        >
+          Access report.
+        </OutboundLink>
+        <br />
+        <br />
+        Bryce, S.A., J.R. Strittholt, <b>B.C. Ward</b>, and D.M. Bachelet. 2012.
+        Colorado Plateau Rapid Ecoregional Assessment Report. Prepared for the
+        U.S. Department of the Interior, Bureau of Land Management, Denver,
+        Colorado.{' '}
+        <OutboundLink
+          from="about"
+          to="https://landscape.blm.gov/REA_General_Docs/COP_Final_Report_Body.pdf"
+          target="_blank"
+        >
+          Access report.
+        </OutboundLink>
+      </p>
     </Container>
   </Layout>
 )

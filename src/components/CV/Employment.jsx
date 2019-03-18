@@ -32,14 +32,15 @@ const Content = styled.div`
   }
 `
 
-const CVItem = ({
+const Employment = ({
   dates: [start, end],
   title,
   organization,
   location,
   children,
+  className,
 }) => (
-  <Wrapper>
+  <Wrapper className={className}>
     <Header>
       <div>
         <h4>{title}</h4>
@@ -54,7 +55,7 @@ const CVItem = ({
   </Wrapper>
 )
 
-CVItem.propTypes = {
+Employment.propTypes = {
   dates: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   ).isRequired,
@@ -62,10 +63,12 @@ CVItem.propTypes = {
   organization: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   children: PropTypes.node,
+  className: PropTypes.string,
 }
 
-CVItem.defaultProps = {
+Employment.defaultProps = {
   children: null,
+  className: null,
 }
 
-export default CVItem
+export default Employment
