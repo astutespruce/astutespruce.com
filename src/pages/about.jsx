@@ -133,7 +133,7 @@ const AboutPage = ({ data: { headerImage } }) => (
           <ul>
             <li>
               2018-Present: Florida Climate Adaptation Explorer (funders: U.S.
-              Fish and Wildlife Service, Florida Wildlife Conservation
+              Fish and Wildlife Service, Florida Fish and Wildlife Conservation
               Commission). Role: project manager and sole software engineer.
             </li>
             <li>
