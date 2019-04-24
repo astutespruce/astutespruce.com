@@ -40,6 +40,8 @@ const Footer = () => (
       <div>
         <h3>Get in touch:</h3>
         <p>
+          Astute Spruce, LLC
+          <br />
           Brendan C. Ward
           <br />
           Owner | Lead software engineer
