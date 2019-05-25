@@ -12,12 +12,12 @@ const typography = new Typography({
       styles: ['700'],
     },
     {
-      name: 'Exo+2',
+      name: 'Lato',
       styles: ['400', '400i', '700', '700i'],
     },
   ],
   headerFontFamily: ['Cinzel'],
-  bodyFontFamily: ['Exo 2'],
+  bodyFontFamily: ['Lato'],
   scaleRatio: 2.441,
   headerWeight: 700,
   overrideStyles: () => ({
