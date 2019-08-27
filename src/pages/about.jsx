@@ -10,13 +10,18 @@ import { FluidImage } from 'components/Image'
 import { Education, Employment } from 'components/CV'
 import Divider from 'components/elements/Divider'
 
-import styled from 'style'
+import styled, { themeGet } from 'style'
 
 const Subtitle = styled.h4`
   margin-bottom: 0.5rem;
 `
 
 const HighlightedProjects = styled(Box).attrs({ ml: '0.4rem' })``
+
+const Note = styled.div`
+  color: ${themeGet('colors.grey.500')};
+  font-style: italic;
+`
 
 const AboutPage = ({ data: { headerImage } }) => (
   <Layout>
@@ -98,6 +103,44 @@ const AboutPage = ({ data: { headerImage } }) => (
             </li>
             <li>Provide consulting and software architecture guidance.</li>
           </ul>
+
+          <HighlightedProjects>
+            <Subtitle>Highlighted Projects</Subtitle>
+            <ul>
+              <li>
+                2019:{' '}
+                <OutboundLink
+                  from="about"
+                  to="https://connectivity.sarpdata.com/"
+                  target="_blank"
+                >
+                  Southeast Aquatic Barrier Prioritization Tool
+                </OutboundLink>{' '}
+                - Phase II (funder: Southeast Aquatic Resources Partnership).
+                Role: project manager and sole software engineer.
+                <Note>Under development.</Note>
+              </li>
+
+              <li>
+                2019:{' '}
+                <OutboundLink
+                  from="/about"
+                  to="http://estuaries.pacificfishhabitat.org/"
+                >
+                  West Coast Estuaries Explorer
+                </OutboundLink>{' '}
+                - Tidal Wetland Loss and Eelgrass (Pacific States Marine
+                Fisheries Commission). Role: project manager and sole software
+                engineer.
+                <Note>Under development.</Note>
+              </li>
+              <li>
+                2019: New Zealand Department of Conservation - Budget Allocation
+                Pilot Application (funder: New Zealand Department of
+                Conservation). Role: project manager and sole software engineer.
+              </li>
+            </ul>
+          </HighlightedProjects>
         </Employment>
 
         <Employment
