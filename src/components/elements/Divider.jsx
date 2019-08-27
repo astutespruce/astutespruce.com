@@ -1,4 +1,4 @@
-import styled, { themeGet } from 'util/style'
+import styled, { themeGet } from 'style'
 
 const Divider = styled.div`
   height: 3px;

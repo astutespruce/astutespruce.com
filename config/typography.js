@@ -1,6 +1,6 @@
 import Typography from 'typography'
 
-import { theme } from 'util/style/theme'
+import { theme } from 'style/theme'
 
 const typography = new Typography({
   title: 'Mediterranean',

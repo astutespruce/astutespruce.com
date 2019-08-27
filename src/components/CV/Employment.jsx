@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import styled, { themeGet } from 'util/style'
+import { OutboundLink } from 'components/Link'
+import styled, { themeGet } from 'style'
 
 const Wrapper = styled.div`
   &:not(:first-child) {
@@ -13,9 +14,10 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
   margin-bottom: 0.5rem;
-  h4 {
-    margin-bottom: 0;
-  }
+`
+
+const Title = styled.h3`
+  margin-bottom: 0;
 `
 
 const Organization = styled.div`
@@ -37,19 +39,27 @@ const Employment = ({
   title,
   organization,
   location,
+  url,
   children,
-  className,
+  ...props
 }) => (
-  <Wrapper className={className}>
+  <Wrapper {...props}>
     <Header>
-      <div>
-        <h4>{title}</h4>
+      <>
+        <Title>{title}</Title>
         <Organization>
-          {organization}&nbsp;&nbsp;|&nbsp;&nbsp;{start}
+          {url ? (
+            <OutboundLink from="/about" to={url}>
+              {organization}
+            </OutboundLink>
+          ) : (
+            organization
+          )}
+          &nbsp;&nbsp;|&nbsp;&nbsp;{start}
           {end ? `—${end}` : null}
         </Organization>
         <Location>{location}</Location>
-      </div>
+      </>
     </Header>
     {children !== null ? <Content>{children}</Content> : null}
   </Wrapper>
@@ -61,14 +71,14 @@ Employment.propTypes = {
   ).isRequired,
   title: PropTypes.string.isRequired,
   organization: PropTypes.string.isRequired,
+  url: PropTypes.string,
   location: PropTypes.string.isRequired,
   children: PropTypes.node,
-  className: PropTypes.string,
 }
 
 Employment.defaultProps = {
+  url: null,
   children: null,
-  className: null,
 }
 
 export default Employment

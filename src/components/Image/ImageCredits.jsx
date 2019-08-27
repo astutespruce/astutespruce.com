@@ -1,4 +1,4 @@
-import styled from 'util/style'
+import styled from 'style'
 
 const ImageCredits = styled.div`
   font-size: smaller;

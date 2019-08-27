@@ -3,13 +3,20 @@ import PropTypes from 'prop-types'
 import { graphql, withPrefix } from 'gatsby'
 
 import Layout from 'components/Layout'
-import { Container, Flex } from 'components/Grid'
+import { Container, Flex, Box } from 'components/Grid'
 import { OutboundLink } from 'components/Link'
 import SEO from 'components/SEO'
 import { FluidImage } from 'components/Image'
 import { Education, Employment } from 'components/CV'
 import Divider from 'components/elements/Divider'
-import LightText from 'components/elements/LightText'
+
+import styled from 'style'
+
+const Subtitle = styled.h4`
+  margin-bottom: 0.5rem;
+`
+
+const HighlightedProjects = styled(Box).attrs({ ml: '0.4rem' })``
 
 const AboutPage = ({ data: { headerImage } }) => (
   <Layout>
@@ -22,7 +29,6 @@ const AboutPage = ({ data: { headerImage } }) => (
       }}
     />
     <Container>
-      <h1>Astute Spruce, LLC</h1>
       <p>
         <a href="mailto:bcward@astutespruce.com">Brendan C. Ward</a> founded
         Astute Spruce in 2019 to work with science-based organizations to shape
@@ -56,7 +62,7 @@ const AboutPage = ({ data: { headerImage } }) => (
       <Divider />
 
       <Flex justifyContent="space-between" flexWrap="wrap">
-        <h2>Curriculum vitae</h2>
+        <h1>Curriculum vitae</h1>
         <div>
           <a
             href={withPrefix('Brendan_C_Ward__Resume.pdf')}
@@ -67,131 +73,165 @@ const AboutPage = ({ data: { headerImage } }) => (
         </div>
       </Flex>
 
-      <h3>Work History</h3>
-
       <section>
         <Employment
           dates={[2019, 'present']}
           title="Owner & Lead Software Engineer"
           organization="Astute Spruce, LLC"
           location="Corvallis, OR"
+          url="https://astutespruce.com"
         >
           <p>
             I work collaboratively with science-based organizations to develop
-            highly-customized software solutions for real-world problems.
+            highly-customized software solutions for real-world problems. I
+            leverage my unique talents and background at the fusion point
+            between science and software engineering to amplify the impact of
+            these organizations, empower their stakeholders with higher-quality
+            data through intuitive and compelling applications, and increase
+            engagement within the science and conservation communities.
           </p>
+          <ul>
+            <li>
+              Develop highly-intuitive, highly-performant user-oriented
+              applications using full-stack software engineering including - but
+              not limited to - Python, modern Javascript, and Go.
+            </li>
+            <li>Provide consulting and software architecture guidance.</li>
+          </ul>
         </Employment>
 
         <Employment
-          dates={[2007, 'present']}
+          dates={[2007, 2019]}
           title="Chief Software Engineer"
-          organization="Conservation Biology Insitute"
+          organization="Conservation Biology Institute"
           location="Corvallis, OR"
+          url="https://consbio.org"
         >
           <p>
-            I lead CBI’s software development team to create tools and platforms
+            I led CBI’s software development team to create tools and platforms
             that empower the conservation community to share, visualize,
-            interpret, and apply geospatial data. I leverage my unique talents
-            and background at the fusion point between science and software
-            engineering.
+            interpret, and apply geospatial data.
           </p>
-          <LightText>
-            Note: From 12/31/2018, I have been transitioning out of this role to
-            focus on completing projects prior to moving to Astute Spruce full
-            time in April, 2019.
-          </LightText>
           <ul>
             <li>
-              Full stack software engineering across broad range of
-              applications, using Python, modern Javascript, and Go
-            </li>
-            <li>
-              Work closely with scientists and clients to co-design highly
+              Worked closely with scientists and clients to co-design highly
               effective, intuitive, and innovative data visualization and
-              communication applications that allow them to deliver high value
-              information
+              communication applications that allowed them to deliver high value
+              information. Used full-stack software engineering across a broad
+              range of applications and technologies to make these applications
+              a reality.
             </li>
             <li>
-              Contribute to CBI strategic direction and business development
+              Led{' '}
+              <OutboundLink from="/about" to="https://databasin.org">
+                Data Basin
+              </OutboundLink>
+              , a multi-million dollar, groundbreaking geospatial data sharing
+              and collaboration platform used by over 28k registered users.
             </li>
             <li>
-              Lead Data Basin, a multi-million dollar, groundbreaking geospatial
-              data sharing and collaboration platform used by over 20k
-              registered users
-            </li>
-            <li>
-              Write successful proposals and manage multi-disciplinary projects
+              Wrote successful proposals and managed multi-disciplinary projects
               (won projects totalling over $500K; led projects totalling over
-              $1.5M)
+              $1.5M).
             </li>
             <li>
-              Recruit and supervise staff, manage team operations, and oversee
-              staff development
+              Recruited and supervised staff, managed team operations, and
+              oversaw staff development. Contributed to CBI strategic direction
+              and business development.
             </li>
           </ul>
-          <h4>Highlighted Projects:</h4>
-          <ul>
-            <li>
-              2018-Present: Florida Climate Adaptation Explorer (funders: U.S.
-              Fish and Wildlife Service, Florida Fish and Wildlife Conservation
-              Commission). Role: project manager and sole software engineer.
-            </li>
-            <li>
-              2018-Present: Bat Acoustic Monitoring Platform - Bat Data
-              Visualization Tool (funder: U.S. Forest Service). Role: project
-              manager and lead software engineer.
-            </li>
-            <li>
-              2018-2019:{' '}
-              <OutboundLink
-                from="about"
-                to="https://connectivity.sarpdata.com/"
-                target="_blank"
-              >
-                Southeast Aquatic Barrier Prioritization Tool
-              </OutboundLink>{' '}
-              (funder: Southeast Aquatic Resources Partnership). Role: project
-              manager and sole software engineer.
-            </li>
-            <li>
-              2017-2019: Environmental Risk Screening Tool for Chinese Ministry
-              of Ecology and the Environment - Foreign Economic Cooperation
-              Office (funder: Paulson Institute). Role: project manager and lead
-              software engineer.
-            </li>
-            <li>
-              2014-2018:{' '}
-              <OutboundLink
-                from="about"
-                to="https://blueprint.southatlanticlcc.org/"
-                target="_blank"
-              >
-                South Atlantic Landscape Conservation Cooperative Conservation
-                Blueprint Simple Viewer
-              </OutboundLink>{' '}
-              (funder: U.S. Fish and Wildlife Service). Role: project manager
-              and lead software engineer.
-            </li>
-            <li>
-              2016: California Water Planning and Information Exchange - Data
-              Basin Pilot (funder: California Department of Water Resources).
-              Role: project manager, lead software engineer, and co-wrote final
-              report.
-            </li>
-            <li>
-              2012-2014: Landscape Conservation Cooperative Network - Integrated
-              Data Management Network (funders: U.S. Fish and Wildlife Service,
-              U.S. Geological Survey). Role: co-led the &quot;Toolshed&quot;
-              working group and co-wrote the &quot;Toolshed&quot; final report.{' '}
-            </li>
-            <li>
-              2011-2012: Rapid Ecoregional Assessments for the Sonoran Desert
-              and Colorado Plateau (funder: Bureau of Land Management). Role:
-              data management lead responsible for preparation, standardization,
-              and delivery of several hundred geospatial datasets; created fire
-              and invasive species predictive models; co-wrote final reports.
-            </li>
-          </ul>
+
+          <HighlightedProjects>
+            <Subtitle>Highlighted Projects:</Subtitle>
+            <ul>
+              <li>
+                2018-2019:{' '}
+                <OutboundLink
+                  from="/about"
+                  to="https://climateadaptationexplorer.org/"
+                >
+                  Florida Climate Adaptation Explorer{' '}
+                </OutboundLink>
+                (funders: U.S. Fish and Wildlife Service, Florida Fish and
+                Wildlife Conservation Commission). Role: project manager and
+                sole software engineer.
+              </li>
+              <li>
+                2019:{' '}
+                <OutboundLink
+                  from="/about"
+                  to="https://visualize.batamp.databasin.org/"
+                >
+                  Bat Acoustic Monitoring Visualization Tool
+                </OutboundLink>{' '}
+                (funder: U.S. Forest Service). Role: project manager and lead
+                software engineer.
+              </li>
+              <li>
+                2018-2019:{' '}
+                <OutboundLink
+                  from="about"
+                  to="https://connectivity.sarpdata.com/"
+                  target="_blank"
+                >
+                  Southeast Aquatic Barrier Prioritization Tool
+                </OutboundLink>{' '}
+                (funder: Southeast Aquatic Resources Partnership). Role: project
+                manager and sole software engineer.
+              </li>
+              <li>
+                2017-2019: Environmental Risk Screening Tool for Chinese
+                Ministry of Ecology and the Environment - Foreign Economic
+                Cooperation Office (funder: Paulson Institute). Role: project
+                manager and lead software engineer.
+              </li>
+              <li>
+                2017-2019:{' '}
+                <OutboundLink
+                  from="/about"
+                  to="http://estuaries.pacificfishhabitat.org/"
+                >
+                  West Coast Estuaries Explorer
+                </OutboundLink>{' '}
+                (funder: U.S. Fish and Wildlife, Pacific States Marine Fisheries
+                Commission). Role: project manager and sole software engineer.
+              </li>
+              <li>
+                2014-2018:{' '}
+                <OutboundLink
+                  from="about"
+                  to="https://blueprint.southatlanticlcc.org/"
+                  target="_blank"
+                >
+                  South Atlantic Landscape Conservation Cooperative Conservation
+                  Blueprint Simple Viewer
+                </OutboundLink>{' '}
+                (funder: U.S. Fish and Wildlife Service). Role: project manager
+                and lead software engineer.
+              </li>
+              <li>
+                2016: California Water Planning and Information Exchange - Data
+                Basin Pilot (funder: California Department of Water Resources).
+                Role: project manager, lead software engineer, and co-wrote
+                final report.
+              </li>
+              <li>
+                2012-2014: Landscape Conservation Cooperative Network -
+                Integrated Data Management Network (funders: U.S. Fish and
+                Wildlife Service, U.S. Geological Survey). Role: co-led the
+                &quot;Toolshed&quot; working group and co-wrote the
+                &quot;Toolshed&quot; final report.{' '}
+              </li>
+              <li>
+                2011-2012: Rapid Ecoregional Assessments for the Sonoran Desert
+                and Colorado Plateau (funder: Bureau of Land Management). Role:
+                data management lead responsible for preparation,
+                standardization, and delivery of several hundred geospatial
+                datasets; created fire and invasive species predictive models;
+                co-wrote final reports.
+              </li>
+            </ul>
+          </HighlightedProjects>
         </Employment>
 
         <Employment
@@ -199,10 +239,11 @@ const AboutPage = ({ data: { headerImage } }) => (
           title="Biological Scientist / GIS Specialist"
           organization="U.S. Forest Service"
           location="Missoula, MT"
+          url="https://www.fs.fed.us/"
         >
           <p>
-            I led the team responsible for mapping and modeling historical fire
-            regimes across U.S. as part of the{' '}
+            I led the historical fire regime mapping and modeling team within
+            the{' '}
             <OutboundLink
               from="/about"
               to="https://www.landfire.gov/"
@@ -210,21 +251,27 @@ const AboutPage = ({ data: { headerImage } }) => (
             >
               LANDFIRE project
             </OutboundLink>
-            .
+            , a highly-ambitious project to quantify current vegetation cover,
+            potential vegetation, fire risk and behavior, and departure from
+            historical conditions across the U.S.
           </p>
           <ul>
             <li>
               Added value across the entire project by contributing major
               improvements to data acquisition, processing, and products; these
               improvements saved thousands of dollars in computing and labor
-              costs and expanded the diversity and value of project products
+              costs and expanded the diversity and value of project products.
             </li>
             <li>
               Directly applied software engineering skills to improve simulation
               model internals resulting in major decreases in processing time,
               and engineer new tools to leverage machine learning for
               classifying and mapping vegetation types using remotely sensed
-              imagery at landscape scales
+              imagery at landscape scales.
+            </li>
+            <li>
+              Developed new methods for mapping invasive vegetation and
+              potential fire impacts.
             </li>
           </ul>
         </Employment>
@@ -232,7 +279,6 @@ const AboutPage = ({ data: { headerImage } }) => (
 
       <Divider />
 
-      <h3>Education:</h3>
       <section>
         <Education
           dates={[2004]}

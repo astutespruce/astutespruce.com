@@ -8,7 +8,7 @@ import {
   FaCogs,
 } from 'react-icons/fa'
 
-import styled, { theme, themeGet } from 'util/style'
+import styled, { theme, themeGet } from 'style'
 import Layout from 'components/Layout'
 import { Box, Container, Flex } from 'components/Grid'
 import SEO from 'components/SEO'

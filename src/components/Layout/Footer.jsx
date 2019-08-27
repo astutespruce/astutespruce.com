@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Container, Flex } from 'components/Grid'
 import { Link, OutboundLink } from 'components/Link'
-import styled, { themeGet } from 'util/style'
+import styled, { themeGet } from 'style'
 
 import { nav } from '../../../config/nav'
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'components/Link'
 import { Flex } from 'components/Grid'
-import styled, { themeGet, themePx } from 'util/style'
+import styled, { themeGet } from 'style'
 import Navigation from './Navigation'
 
 const Title = styled.h1`

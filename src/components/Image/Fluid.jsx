@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
-import styled from 'util/style'
+import styled from 'style'
 import ImageCredits from './ImageCredits'
 
 const Wrapper = styled.div`

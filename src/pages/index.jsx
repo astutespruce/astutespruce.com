@@ -7,7 +7,7 @@ import SEO from 'components/SEO'
 import { Container } from 'components/Grid'
 import { FluidImage, InsetFluidImage } from 'components/Image'
 
-import styled, { themeGet } from 'util/style'
+import styled, { themeGet } from 'style'
 
 const Hero = styled(Container)`
   margin-top: 3rem;

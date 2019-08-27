@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { ThemeProvider, theme } from 'util/style'
+import { ThemeProvider, theme } from 'style'
 import { scrollIntoView } from 'util/dom'
 
 import Header from './Header'
