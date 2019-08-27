@@ -6,6 +6,16 @@ import { Flex } from 'components/Grid'
 import styled, { themeGet } from 'style'
 import Navigation from './Navigation'
 
+const Wrapper = styled(Flex)`
+  background: ${themeGet('colors.background')};
+  padding: 0.5rem 1rem;
+  border-bottom: 3px solid ${themeGet('colors.primary.300')};
+
+  a:hover {
+    text-decoration: none;
+  }
+`
+
 const Title = styled.h1`
   margin: 0 1em 0 0;
   font-size: 2rem;
@@ -16,16 +26,6 @@ const Title = styled.h1`
 
   & * {
     color: ${themeGet('colors.grey.500')};
-    text-decoration: none;
-  }
-`
-
-const Wrapper = styled(Flex)`
-  background: ${themeGet('colors.background')};
-  padding: 0.5rem 1rem;
-  border-bottom: 3px solid ${themeGet('colors.primary.300')};
-
-  a:hover {
     text-decoration: none;
   }
 `
