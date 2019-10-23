@@ -28,7 +28,6 @@ const typography = new Typography({
     },
     body: {
       height: '100%',
-      backgroundColor: theme.colors.background,
     },
     a: {
       color: theme.colors.accent[700],

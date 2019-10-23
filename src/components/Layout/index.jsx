@@ -7,8 +7,6 @@ import { scrollIntoView } from 'util/dom'
 import Header from './Header'
 import Footer from './Footer'
 
-import config from '../../../config/meta'
-
 const Layout = ({ children }) => {
   // Always scroll to top after nav
   useEffect(() => {
@@ -18,7 +16,7 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        <Header id="Header" siteTitle={config.siteTitle} />
+        <Header id="Header" />
         {children}
         <Footer />
       </>

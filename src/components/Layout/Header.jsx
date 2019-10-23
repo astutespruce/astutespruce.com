@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { graphql, useStaticQuery } from 'gatsby'
 
 import { Link } from 'components/Link'
 import { Flex } from 'components/Grid'
@@ -30,17 +31,32 @@ const Title = styled.h1`
   }
 `
 
-const Header = ({ siteTitle }) => (
-  <Wrapper as="header" alignItems="center" justifyContent="space-between">
-    <Title>
-      <Link to="/">{siteTitle}</Link>
-    </Title>
-    <Navigation />
-  </Wrapper>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string.isRequired,
+const Header = () => {
+  const {
+    site: {
+      siteMetadata: { title },
+    },
+  } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  )
+  return (
+    <Wrapper as="header" alignItems="center" justifyContent="space-between">
+      <Title>
+        <Link to="/">{title}</Link>
+      </Title>
+      <Navigation />
+    </Wrapper>
+  )
 }
+
+Header.propTypes = {}
 
 export default Header
