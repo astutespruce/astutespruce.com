@@ -1,6 +1,10 @@
 import GoogleAnalytics from 'react-ga'
 import * as Sentry from '@sentry/browser'
 
+// load the fonts
+import 'typeface-cinzel'
+import 'typeface-lato'
+
 import { siteMetadata } from './gatsby-config'
 
 /**

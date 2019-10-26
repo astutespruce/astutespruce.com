@@ -40,6 +40,8 @@
     "reflexbox": "^4.0.6",
     "styled-components": "^4.4.0",
     "styled-system": "^5.1.2",
+    "typeface-cinzel": "0.0.72",
+    "typeface-lato": "0.0.75",
     "typography": "^0.16.19"
   },
   "keywords": [

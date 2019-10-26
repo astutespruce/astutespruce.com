@@ -113,6 +113,20 @@ const createProjectPages = (projects, createPage) => {
   })
 }
 
+// blog: allMdx(
+//   filter: {
+//     frontmatter: { date: { ne: null } }
+//     fileAbsolutePath: { regex: "//content/blog//" }
+//   }
+//   sort: { order: DESC, fields: [frontmatter___date] }
+// ) {
+//   edges {
+//     node {
+//       ...MDXDetails
+//     }
+//   }
+// }
+
 exports.createPages = async ({ actions, reporter, graphql }) => {
   const { createPage } = actions
 
@@ -137,19 +151,6 @@ exports.createPages = async ({ actions, reporter, graphql }) => {
       }
     }
     query {
-      // blog: allMdx(
-      //   filter: {
-      //     frontmatter: { date: { ne: null } }
-      //     fileAbsolutePath: { regex: "//content/blog//" }
-      //   }
-      //   sort: { order: DESC, fields: [frontmatter___date] }
-      // ) {
-      //   edges {
-      //     node {
-      //       ...MDXDetails
-      //     }
-      //   }
-      // }
       projects: allMdx(
         filter: { fileAbsolutePath: { regex: "//content/projects//" } }
         sort: { order: DESC, fields: [frontmatter___startDate] }
@@ -164,7 +165,6 @@ exports.createPages = async ({ actions, reporter, graphql }) => {
   `)
 
   if (errors) {
-    // return Promise.reject(errors)
     reporter.panicOnBuild('ERROR: Loading "createPages" query')
     return
   }
