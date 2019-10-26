@@ -15,7 +15,7 @@ import SEO from 'components/SEO'
 import { FluidImage } from 'components/Image'
 import { OutboundLink } from 'components/Link'
 
-const iconColor = theme.colors.grey[400]
+const iconColor = theme.colors.grey[600]
 
 const ServiceBox = styled(Box)`
   &:not(:first-of-type) {

@@ -7,4 +7,8 @@ export const nav = [
     path: '/services',
     label: 'Services',
   },
+  {
+    path: '/projects',
+    label: 'Projects',
+  },
 ]

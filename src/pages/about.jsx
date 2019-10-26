@@ -19,7 +19,8 @@ const Subtitle = styled.h4`
 const HighlightedProjects = styled(Box).attrs({ ml: '0.4rem' })``
 
 const Note = styled.div`
-  color: ${themeGet('colors.grey.500')};
+  font-size: smaller;
+  color: ${themeGet('colors.grey.600')};
   font-style: italic;
 `
 
@@ -136,8 +137,8 @@ const AboutPage = ({ data: { headerImage } }) => (
               </li>
               <li>
                 2019: New Zealand Department of Conservation - Budget Allocation
-                Pilot Application (funder: New Zealand Department of
-                Conservation). Role: project manager and sole software engineer.
+                Pilot Application (New Zealand Department of Conservation).
+                Role: project manager and sole software engineer.
               </li>
             </ul>
           </HighlightedProjects>

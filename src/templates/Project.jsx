@@ -4,19 +4,37 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import get from 'lodash/get'
 
-import { Link } from 'components/Link'
-import { Title as BaseTitle } from 'components/Text'
-import { Box, Container } from 'components/Grid'
+import { Title as BaseTitle, Text } from 'components/Text'
+import { Box, Container, Flex } from 'components/Grid'
 import Layout from 'components/Layout'
 import SEO from 'components/SEO'
-import { FluidImage } from 'components/Image'
+import { BannerImage } from 'components/Image'
 import styled, { themeGet } from 'style'
 
 const Title = styled(BaseTitle)`
+  font-size: 2rem;
+  margin-top: 2rem;
   margin-bottom: 0.5rem;
 `
 
-const Client = styled(Box).attrs({})``
+const Info = styled(Box).attrs({
+  mb: '1rem',
+  pb: '1rem',
+})`
+  border-bottom: 1px solid ${themeGet('colors.grey.100')};
+`
+
+const Client = styled(Text).attrs({ fontSize: '1.25rem' })``
+
+const Dates = styled(Text).attrs({ fontSize: 'smaller' })`
+  color: ${themeGet('colors.primary.600')};
+`
+
+const Categories = styled(Text).attrs({ my: '1rem' })`
+  text-transform: uppercase;
+  font-size: smaller;
+  color: ${themeGet('colors.primary.600')};
+`
 
 const Content = styled(Box).attrs({})`
   h1,
@@ -28,6 +46,10 @@ const Content = styled(Box).attrs({})`
     text-align: center;
     color: ${themeGet('colors.grey.700')};
     font-size: smaller;
+  }
+
+  p + h3 {
+    margin-top: 2rem;
   }
 `
 
@@ -41,8 +63,18 @@ const ProjectTemplate = ({
   data: {
     project: {
       body,
-      frontmatter: { client, tech },
-      fields: { slug, title, description, date, keywords, banner },
+      frontmatter: {
+        title,
+        client,
+        startDate,
+        endDate,
+        categories,
+        banner,
+        description,
+        keywords,
+        tech,
+      },
+      fields: { slug },
     },
   },
 }) => {
@@ -51,27 +83,29 @@ const ProjectTemplate = ({
       <SEO
         title={title}
         description={description}
-        keywords={keywords}
+        keywords={keywords || categories}
         image={get(banner, 'src.childImageSharp.fluid.src')}
         extra={{ slug }}
       />
 
-      {banner ? (
-        <FluidImage
-          image={banner.src.childImageSharp.fluid}
-          height="40vh"
-          credits={{
-            author: banner.credit,
-            url: banner.url,
-          }}
-        />
-      ) : null}
+      {banner ? <BannerImage {...banner} /> : null}
 
       <Container>
         <Title>{title}</Title>
-        <Client>
-          <b>Client:</b> {client}
-        </Client>
+
+        <Info>
+          <Flex alignItems="flex-end" justifyContent="space-between">
+            <Client>
+              <b>Client:</b> {client}
+            </Client>
+
+            <Dates>
+              {startDate} — {endDate || 'present'}
+            </Dates>
+          </Flex>
+
+          <Categories>{categories.join(' | ')}</Categories>
+        </Info>
 
         <Content>
           <MDXRenderer>{body}</MDXRenderer>
@@ -83,7 +117,7 @@ const ProjectTemplate = ({
             <br />
             <List>
               {tech.map(labels => (
-                <li>{labels.join(', ')}</li>
+                <li key={labels.join('_')}>{labels.join(', ')}</li>
               ))}
             </List>
           </>
@@ -97,22 +131,20 @@ export const pageQuery = graphql`
   query($id: String!) {
     project: mdx(fields: { id: { eq: $id } }) {
       frontmatter {
-        tech
+        title
         client
+        startDate(formatString: "MMMM D, YYYY")
+        endDate(formatString: "MMMM D, YYYY")
+        categories
+        banner {
+          ...Banner
+        }
+        description
+        tech
+        keywords
       }
       fields {
         slug
-        title
-        description
-        banner {
-          src {
-            ...fluidImage3200
-          }
-          credit
-          url
-        }
-        date
-        keywords
       }
       body
     }
@@ -124,20 +156,18 @@ ProjectTemplate.propTypes = {
     project: PropTypes.shape({
       body: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
         client: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string,
+        categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+        banner: PropTypes.shape(BannerImage.propTypes),
+        description: PropTypes.string.isRequired,
         tech: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+        keywords: PropTypes.arrayOf(PropTypes.string),
       }),
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string,
-        date: PropTypes.string,
-        keywords: PropTypes.arrayOf(PropTypes.string),
-        banner: PropTypes.shape({
-          src: PropTypes.object,
-          credit: PropTypes.string,
-          url: PropTypes.string,
-        }),
       }),
     }).isRequired,
   }).isRequired,

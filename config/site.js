@@ -4,7 +4,7 @@ module.exports = {
   siteUrl: 'https://astutespruce.com',
   language: 'en',
   // siteLogo: 'images/logo.png', // Used for SEO and manifest, path to your image you placed in the 'static' folder
-  siteDescription: '',
+  siteDescription: 'Astute Spruce, LLC website',
   siteKeywords: [],
   minibio: ``,
   author: 'Brendan C. Ward', // Author for schemaORGJSONLD

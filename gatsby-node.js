@@ -16,6 +16,33 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
+exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
+  createTypes(`
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+    }
+    type Frontmatter {
+      title: String!
+      banner: Banner
+      date: Date @dateformat
+      startDate: Date @dateformat
+      endDate: Date @dateformat
+      description: String
+      url: String
+      client: String
+      categories: [String!]!
+      tech: [[String!]!]
+      keywords: [String!]
+    }
+    type Banner {
+      src: File! @fileByRelativePath
+      url: String
+      credits: String
+      caption: String
+    }
+  `)
+}
+
 // MDX config for multiple paths
 // adapted from: https://github.com/kentcdodds/kentcdodds.com/blob/master/gatsby-node.js
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -34,7 +61,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     } = getNode(parent)
 
     const { frontmatter } = node
-    const { slug, title, banner, date, description, keywords } = frontmatter
+    const { slug } = frontmatter
 
     createNodeField({
       name: 'id',
@@ -54,65 +81,25 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: `/${contentType}/${slug ||
         slugify(filename === 'index' ? relativeDirectory : filename)}`,
     })
-
-    createNodeField({
-      name: 'date',
-      node,
-      value: date ? date.split(' ')[0] : '',
-    })
-
-    createNodeField({
-      name: 'title',
-      node,
-      value: title,
-    })
-
-    createNodeField({
-      name: 'description',
-      node,
-      value: description,
-    })
-
-    createNodeField({
-      name: 'banner',
-      node,
-      value: banner,
-    })
-
-    createNodeField({
-      name: 'keywords',
-      node,
-      value: keywords || [],
-    })
-
-    // add project specific fields
-    if (contentType === 'projects') {
-      const { client } = frontmatter
-      createNodeField({
-        name: 'client',
-        node,
-        value: client,
-      })
-    }
   }
 }
 
-const createBlogPosts = (posts, createPage) => {
-  posts.forEach(({ id, fields: { slug: pagePath } }, i) => {
-    const prev = i === 0 ? null : posts[i - 1]
-    const next = i === posts.length - 1 ? null : posts[i + 1].node
+// const createBlogPosts = (posts, createPage) => {
+//   posts.forEach(({ id, fields: { slug: pagePath } }, i) => {
+//     const prev = i === 0 ? null : posts[i - 1]
+//     const next = i === posts.length - 1 ? null : posts[i + 1].node
 
-    createPage({
-      path: pagePath,
-      component: path.resolve(`./src/templates/BlogPost.jsx`),
-      context: {
-        id,
-        prev,
-        next,
-      },
-    })
-  })
-}
+//     createPage({
+//       path: pagePath,
+//       component: path.resolve(`./src/templates/BlogPost.jsx`),
+//       context: {
+//         id,
+//         prev,
+//         next,
+//       },
+//     })
+//   })
+// }
 
 const createProjectPages = (projects, createPage) => {
   projects.forEach(({ id, fields: { slug: pagePath } }) => {
@@ -140,30 +127,32 @@ exports.createPages = async ({ actions, reporter, graphql }) => {
         }
       }
       excerpt(pruneLength: 250)
-      fields {
+      frontmatter {
         title
-        slug
         description
         date
       }
+      fields {
+        slug
+      }
     }
     query {
-      blog: allMdx(
-        filter: {
-          frontmatter: { date: { ne: null } }
-          fileAbsolutePath: { regex: "//content/blog//" }
-        }
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ) {
-        edges {
-          node {
-            ...MDXDetails
-          }
-        }
-      }
+      // blog: allMdx(
+      //   filter: {
+      //     frontmatter: { date: { ne: null } }
+      //     fileAbsolutePath: { regex: "//content/blog//" }
+      //   }
+      //   sort: { order: DESC, fields: [frontmatter___date] }
+      // ) {
+      //   edges {
+      //     node {
+      //       ...MDXDetails
+      //     }
+      //   }
+      // }
       projects: allMdx(
         filter: { fileAbsolutePath: { regex: "//content/projects//" } }
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { order: DESC, fields: [frontmatter___startDate] }
       ) {
         edges {
           node {
@@ -180,8 +169,8 @@ exports.createPages = async ({ actions, reporter, graphql }) => {
     return
   }
 
-  const { blog, projects } = data
+  const { projects } = data
 
-  createBlogPosts(extractNodes(blog), createPage)
+  // createBlogPosts(extractNodes(blog), createPage)
   createProjectPages(extractNodes(projects), createPage)
 }

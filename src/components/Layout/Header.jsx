@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 
 import { Link } from 'components/Link'
@@ -8,7 +7,7 @@ import styled, { themeGet } from 'style'
 import Navigation from './Navigation'
 
 const Wrapper = styled(Flex)`
-  background: ${themeGet('colors.background')};
+  background: ${themeGet('colors.primary.100')};
   padding: 0.5rem 1rem;
   border-bottom: 3px solid ${themeGet('colors.primary.300')};
 
@@ -26,7 +25,7 @@ const Title = styled.h1`
   }
 
   & * {
-    color: ${themeGet('colors.grey.500')};
+    color: ${themeGet('colors.grey.900')};
     text-decoration: none;
   }
 `
