@@ -20,6 +20,8 @@ const typography = new Typography({
   bodyFontFamily: ['Lato'],
   scaleRatio: 2.441,
   headerWeight: 700,
+  headerColor: theme.colors.grey[900],
+  bodyColor: theme.colors.grey[900],
   overrideStyles: () => ({
     html: {
       height: '100%',
@@ -28,7 +30,6 @@ const typography = new Typography({
     },
     body: {
       height: '100%',
-      backgroundColor: theme.colors.background,
     },
     a: {
       color: theme.colors.accent[700],
@@ -36,9 +37,6 @@ const typography = new Typography({
     },
     'a:hover': {
       textDecoration: 'underline',
-    },
-    'h1, h2, h3, h4, h5': {
-      color: theme.colors.grey[700],
     },
   }),
 })

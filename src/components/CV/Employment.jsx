@@ -25,7 +25,8 @@ const Organization = styled.div`
 `
 
 const Location = styled.div`
-  color: ${themeGet('colors.grey.200')};
+  font-style: italic;
+  color: ${themeGet('colors.grey.600')};
 `
 
 const Content = styled.div`
