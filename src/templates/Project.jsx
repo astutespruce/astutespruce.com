@@ -18,11 +18,9 @@ const Title = styled(BaseTitle)`
 `
 
 const Info = styled(Box).attrs({
-  mb: '1rem',
-  pb: '1rem',
-})`
-  border-bottom: 1px solid ${themeGet('colors.grey.100')};
-`
+  // mb: '1rem',
+  // pb: '1rem',
+})``
 
 const Client = styled(Text).attrs({ fontSize: '1.25rem' })``
 
@@ -36,16 +34,32 @@ const Categories = styled(Text).attrs({ my: '1rem' })`
   color: ${themeGet('colors.primary.600')};
 `
 
-const Content = styled(Box).attrs({})`
+const MDXContent = styled(Box).attrs({ py: '1rem', my: '1rem' })`
+  border-top: 1px solid ${themeGet('colors.grey.100')};
+  border-bottom: 1px solid ${themeGet('colors.grey.100')};
+
   h1,
   h2,
   h3 {
     margin-bottom: 0.5rem;
   }
+
   figcaption {
     text-align: center;
     color: ${themeGet('colors.grey.700')};
     font-size: smaller;
+  }
+
+  ul {
+    margin-left: 2rem !important;
+  }
+
+  ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  p + ul {
+    margin-top: -1rem;
   }
 
   p + h3 {
@@ -107,9 +121,9 @@ const ProjectTemplate = ({
           <Categories>{categories.join(' | ')}</Categories>
         </Info>
 
-        <Content>
+        <MDXContent>
           <MDXRenderer>{body}</MDXRenderer>
-        </Content>
+        </MDXContent>
 
         {tech && tech.length ? (
           <>
