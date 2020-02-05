@@ -109,21 +109,13 @@ const AboutPage = ({ data: { headerImage } }) => (
             <Subtitle>Highlighted Projects</Subtitle>
             <ul>
               <li>
-                2019:{' '}
-                <OutboundLink
-                  from="about"
-                  to="https://connectivity.sarpdata.com/"
-                  target="_blank"
-                >
-                  Southeast Aquatic Barrier Prioritization Tool
-                </OutboundLink>{' '}
-                - Phase II (funder: Southeast Aquatic Resources Partnership).
-                Role: project manager and sole software engineer.
+                2019-2021: Enhanced User Engagement with Conservation Blueprints
+                in the Southeastern U.S. (funder: U.S. Fish and Wildlife
+                Service). Role: project manager and sole software engineer.
                 <Note>Under development.</Note>
               </li>
-
               <li>
-                2019:{' '}
+                2019-2020:{' '}
                 <OutboundLink
                   from="/about"
                   to="http://estuaries.pacificfishhabitat.org/"
@@ -135,6 +127,19 @@ const AboutPage = ({ data: { headerImage } }) => (
                 engineer.
                 <Note>Under development.</Note>
               </li>
+              <li>
+                2019:{' '}
+                <OutboundLink
+                  from="about"
+                  to="https://connectivity.sarpdata.com/"
+                  target="_blank"
+                >
+                  Southeast Aquatic Barrier Prioritization Tool
+                </OutboundLink>{' '}
+                - Phase II (funder: Southeast Aquatic Resources Partnership).
+                Role: project manager and sole software engineer.
+              </li>
+
               <li>
                 2019: New Zealand Department of Conservation - Budget Allocation
                 Pilot Application (New Zealand Department of Conservation).
