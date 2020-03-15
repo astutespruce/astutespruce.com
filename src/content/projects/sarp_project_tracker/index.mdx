@@ -3,21 +3,53 @@ slug: sarp_project_tracker
 title: Southeast Aquatic Resources Partnership - Project Tracking Database
 client: Southeast Aquatic Resources Partnership
 startDate: '2020-01-01'
-endDate: '2019-03-31'
-# banner:
-#   src: ./images/anton-khmelnitsky-Hc4v7w0StzE-unsplash.jpg
-#   credit: Anton Khmelnitsky
-#   url: https://unsplash.com/photos/Hc4v7w0StzE
-# description: |
-#   TODO
+endDate: '2020-03-31'
+banner:
+  src: ./images/kazuend-cCthPLHmrzI-unsplash.jpg
+  credit: Kazuend
+  url: https://unsplash.com/photos/cCthPLHmrzI
+description: |
+  We migrated the project tracking database for the
+  Southeast Aquatic Resources Partnership to Amazon Web Services
+  to improve ease of access and working with project data.
 categories:
-  - Design
-  - Front-end Development
-  - API Development
   - Data Processing
 tech:
-  - [Javascript, GatsbyJS, React, MapboxGL]
-  - [Python, Pandas, GeoPandas, Pygeos, Numpy]
+  - [Postgresql]
+  - [Amazon Web Services]
 ---
 
-### Increasing Aquatic Habitat Connectivity in the Southeast U.S.
+### Improving Access to Project Data
+
+The [Southeast Aquatic Resource Partnership](https://southeastaquatics.net/)
+partners with several organizations throughout the Southeast U.S. to
+improve aquatic habitat quality and connectivity. As one of the
+[National Fish Habitat Partnerships](http://www.fishhabitat.org/) and
+through partnerships with various other state and federal organizations,
+they manage and help fund aquatic conservation projects in the region.
+
+This also brings with it several responsibilities that include reporting
+essential project information and accomplishments to their board as well
+as their funders and partners. However, tracking this information in a
+structured way that allowed SARP to generate reports was putting an
+increasing burden on SARP's staff.
+
+To help make it easier to access and manage this project tracking database,
+we migrated the database from a Microsoft SQL Server database on a
+contractor-hosted server that was virtually inaccessible to Postgresql
+within Amazon Web Services.
+
+As part of the migration, we worked to streamline the database structure
+and reports, to make it as easy as possible for SARP staff to enter and
+maintain key project information and generate reports. This should
+help ease the burden on SARP's staff, and empower SARP to more readily
+prepare the necessary reports for their board, funders, and partners.
+
+While the current budget did not permit building a user-facing
+application that makes working with this database easier, we did
+make several improvements that will make that application easier to
+implement once resources are available.
+
+![Landscape Photo](./images/carl-cerstrand-J2bNC9gW5NI-unsplash.jpg 'Photo by Carl Cerstrand on Unsplash')
+
+<!-- https://unsplash.com/photos/J2bNC9gW5NI -->
