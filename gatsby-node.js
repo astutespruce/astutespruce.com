@@ -153,7 +153,7 @@ exports.createPages = async ({ actions, reporter, graphql }) => {
     query {
       projects: allMdx(
         filter: { fileAbsolutePath: { regex: "//content/projects//" } }
-        sort: { order: DESC, fields: [frontmatter___startDate] }
+        sort: { order: DESC, fields: [frontmatter___endDate] }
       ) {
         edges {
           node {

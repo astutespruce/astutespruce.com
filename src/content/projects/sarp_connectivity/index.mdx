@@ -1,0 +1,139 @@
+---
+slug: sarp_connectivity
+title: Southeast Aquatic Barrier Prioritization Tool - Phase II
+client: Southeast Aquatic Resources Partnership
+startDate: '2019-05-01'
+endDate: '2019-12-31'
+banner:
+  src: ./images/tom-rumble-uVekMNk4jJ8-unsplash.jpg
+  credit: Tom Rumble
+  url: https://unsplash.com/photos/uVekMNk4jJ8
+description: |
+  Major improvements to the Southeast Aquatic Connectivity Tool
+  to better assist members of the aquatic conservation community
+  in indentifying and removing or mitigating the impact of
+  aquatic barriers across the Southeast U.S.
+categories:
+  - Design
+  - Front-end Development
+  - API Development
+  - Data Processing
+tech:
+  - [Javascript, GatsbyJS, React, MapboxGL]
+  - [Python, Pandas, GeoPandas, Pygeos, Numpy]
+---
+
+### Increasing Aquatic Habitat Connectivity in the Southeast U.S.
+
+Hundreds of years of man-made alterations to the rivers and streams of the Southeast
+U.S. has resulted in heavily fragmented aquatic habitat. The Southeast also
+has some of the highest aquatic biodiversity, which means that there are now
+many endangered, threatened, or other at-risk aquatic species throughout the region.
+
+These aquatic barriers include a wide range of dams, from tiny mill-pond dams to massive
+hydroelectric or water management dam systems, as well as culverts and other types of
+road crossings over rivers and streams. While some of these barriers may include
+fish ladders or other systems that assist migrating fish, most do not.
+In some cases, these barriers have fallen into disrepair, and are
+now a hazard in the aquatic landscape. There is a strong need to identify what
+barriers even exist across the region, their condition, and which ones can
+be removed or otherwise mitigated to improve habitat connectivity and reduce
+hazards.
+
+The [Southeast Aqautic Resources Partnership](https://southeastaquatics.net/) (SARP)
+have been leading the development of a region-wide inventory of aquatic barriers
+for several years. They have been instrumental in forming aquatic connectivity
+teams in states throughout the region that focus on using this inventory to
+identify aquatic barriers that can be removed or mitigated. As part of this, they
+need to find the barriers provide a reasonable balance between increasing
+aquatic connectivity while remaining feasible both in terms of financial cost as
+well as overall socioeconomic support. For example, removing a large active hydropower dam
+could greatly increase the amount of connected rivers and streams in an area, but
+may come at a very steep economic and social cost. In contrast, an aging unused
+dam created several decades ago may be both feasible to remove, and contribute
+a significant amount of re-connected habitat.
+
+In order to help SARP's partners better identify and prioritize aquatic barriers,
+we created and have continued to improve the
+[Southeast Aquatic Barrier Prioritization Tool](https://connectivity.sarpdata.com/).
+I developed the initial version of this tool while at the
+[Conservation Biology Institute](https://consbio.org/). I partnered directly
+with SARP under this Phase II to further improve the capabilities of this tool
+and underlying data analysis framework.
+
+This tool allows users to:
+
+- Explore summaries of aquatic barriers across the region by state, county, watershed, and other summary areas
+- Select barriers within a given area of interest
+- Filter barriers according to various criteria
+- Prioritize barriers for removal based on overall amount of network connectivity or habitat quality
+
+![Historic Dam](./images/anton-khmelnitsky-Hc4v7w0StzE-unsplash.jpg 'Historic Dam | Photo by Anton Khmelnitsky on Unsplash')
+
+<!-- https://unsplash.com/photos/Hc4v7w0StzE -->
+
+### A Better Aquatic Network Analysis framework
+
+The amount of data that we process to make this tool possible is staggering:
+
+- over 140,000 dams and nearly 30,000 inventoried road-related crossings in SARP's inventory
+- over 7 million river and stream segments from the [National Hydrography Dataset](https://www.usgs.gov/core-science-systems/ngp/national-hydrography/nhdplus-high-resolution)
+- nearly 80,000 waterbodies that intersect rivers and streams
+- 14 states and Puerto Rico
+
+Under Phase I, I worked with SARP to migrate the network analysis framework from
+ArcGIS to Python. In ArcGIS, a subset of the Southeast would take over a week to
+process, and often failed. It couldn't even process the largest subregion used
+in the analysis. Clearly, that wasn't a sustainable solution.
+
+By the end of Phase I, I had created a full [analysis suite](https://github.com/brendan-ward/nhdnet)
+implemented in Python using open source libraries,
+which allowed us to snap the barriers to the aquatic network, subdivide the network
+between the barriers, calculate various network statistics, and use that information
+to prioritize aquatic barriers based on metrics that characterize how much
+connected habitat they would contribute. While it could complete the entire Southeast
+over the course of several hours, running it was still a bit more manual than ideal.
+
+Under Phase II, our goals were to improve on this framework to make it easier to
+process new inventory data as they become available. We also found that we needed
+to greatly improve our snapping and deduplication of data in order to ensure
+better results. The inventory is compiled from many individual datasets managed by
+different organizations with varying data quality, which made it somewhat common
+to find several nearby points that all indicated the same dam. Furthermore, for
+larger dams, representing a linear feature that could be more than a mile wide with
+single point meant that we often missed these major barriers in our analysis.
+They were simply too far away from the aquatic network to snap correctly, even
+though they have a major impact on that network.
+
+In addition to major improvements in our snapping and deduplication functionality,
+I also focused on performance improvements. One of the slowest parts of working
+with data like these is reading and writing to traditional GIS formats. To get
+around that issue, I developed [geofeather](https://github.com/brendan-ward/geofeather),
+which uses the excellent [feather](https://github.com/wesm/feather) format
+to provide a column-oriented, very fast read / write file format. By using this
+for all internal geospatial files, this greatly improved the speed of the overall analysis.
+We can now complete the analysis across the entire region in just a couple hours.
+
+![Fish](./images/mark-huigen-4xDc1vZAB_0-unsplash.jpg 'Photo by Mark Huigen on Unsplash')
+
+<!-- https://unsplash.com/photos/4xDc1vZAB_0 -->
+
+### Other Improvements
+
+Phase II also involved:
+
+- Migrating to GatsbyJS for the user interface
+- Providing the ability to visualize barriers in the context of priority watersheds for different organizations
+- Enabling users to visualize the upstream network from a given aquatic barrier
+- Easier ways to download data
+- Better accounting for the amount of a river network that is inundated by a reservoir downstream of a barrier, since this would not yield as much re-connected habitat
+
+### Empowering Partners
+
+SARP and partners have been actively engaging with this tool to identify and prioritize barriers.
+They have already identified several removal projects that are in various phases
+of planning and have completed at least one removal project based on this tool.
+
+To learn more about aquatic connectivity in the Southeast, check out the
+[connectivity tool](https://connectivity.sarpdata.com/) and SARP's
+[Aquatic Connectivity Program](https://southeastaquatics.net/sarps-programs/southeast-aquatic-connectivity-assessment-program-seacap).
