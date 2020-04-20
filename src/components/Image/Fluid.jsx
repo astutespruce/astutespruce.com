@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   margin-top: 0;
   height: ${({ height }) => height};
   min-height: ${({ minHeight }) => minHeight};
+  max-height: ${({ maxHeight }) => maxHeight};
   overflow: hidden;
   width: 100%;
   position: relative;
@@ -23,9 +24,13 @@ const StyledImage = styled(Img)`
   right: 0;
 `
 
-const Fluid = ({ image, height, minHeight, credits, caption }) => (
+const Fluid = ({ image, height, minHeight, maxHeight, credits, caption }) => (
   <>
-    <Wrapper height={height} minHeight={minHeight}>
+    <Wrapper
+      height={height}
+      minHeight={minHeight}
+      maxHeight={maxHeight || height}
+    >
       <StyledImage fluid={image} />
     </Wrapper>
     {credits ? (
@@ -44,6 +49,7 @@ Fluid.propTypes = {
   image: PropTypes.any.isRequired,
   height: PropTypes.string,
   minHeight: PropTypes.string,
+  maxHeight: PropTypes.string,
   credits: PropTypes.shape({
     url: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
@@ -54,6 +60,7 @@ Fluid.propTypes = {
 Fluid.defaultProps = {
   height: '60vh',
   minHeight: '20rem',
+  maxHeight: null,
   credits: null,
   caption: null,
 }
