@@ -366,6 +366,12 @@ const AboutPage = ({ data: { headerImage } }) => (
       <h3>Publications:</h3>
       <section>
         <p>
+          Weller, T.J. and <b>B.C. Ward</b>. 2020. AMPlifying Bat Monitoring
+          Across North America: an online portal shares acoustic data to advance
+          bat conservation across the continent. The Wildlife Professional
+          May/June 2020: 44-48.
+          <br />
+          <br />
           Scheller, R.M., W.D. Spencer, H. Rustigian-Romsos, A.D. Syphard,{' '}
           <b>B.C. Ward</b>, and J.R. Strittholt. 2011. Using stochastic
           simulation to evaluate competing risks of wildfires and fuels

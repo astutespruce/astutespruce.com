@@ -28,6 +28,13 @@ const typography = new Typography({
     'a:hover': {
       textDecoration: 'underline',
     },
+    blockquote: {
+      color: theme.colors.grey[900],
+      background: theme.colors.grey[100],
+      padding: '1rem',
+      fontStyle: 'italic',
+      borderRadius: '0.5rem',
+    },
   }),
 })
 

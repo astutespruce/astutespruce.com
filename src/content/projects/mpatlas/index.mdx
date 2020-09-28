@@ -1,0 +1,99 @@
+---
+slug: mpatlas
+title: Marine Protection Atlas
+client: Marine Conservation Institute
+startDate: '2020-02-01'
+endDate: '2020-10-31'
+banner:
+  src: ./images/noaa-AQx2VH2731k-unsplash.jpg
+  credit: NOAA
+  url: https://unsplash.com/photos/AQx2VH2731k
+description: |
+  We worked closely with the Marine Conservation Institute to build a brand new,
+  easy-to-use, data-rich version of the Marine Protection Atlas to more effectively
+  showcase key information about marine protection worldwide
+categories:
+  - Design
+  - Front-end Development
+  - API Development
+  - Data Processing
+tech:
+  - [Javascript, GatsbyJS, React, MapboxGL]
+  - [Python, Pandas, GeoPandas, Pygeos, Numpy]
+  - [Postgresql, PostGIS]
+  - [Docker]
+---
+
+### Major Update to the Marine Protection Atlas
+
+Marine protected areas provide critical refugia for many marine species at multiple
+points in their life histories. When effectively protected through stringent
+regulations and active management to highly restrict extractive activities,
+marine protected areas have been shown to help marine species better sustain
+fishing and other activities outside their boundaries. Without marine preservation,
+these species would be overfished, populations would crash, and marine ecosystems
+as well as human populations that depend on them would become imperiled.
+
+While roughly 6% of the world's oceans are protected through designated
+protected areas, only 2.6% are highly protected from extractive uses. The
+[Marine Conservation Institute](https://marine-conservation.org/) and partners
+have set an ambitious goal to protect at least 30% of the world's oceans in
+effective, highly-protected marine areas by 2030.
+
+The [Marine Protection Atlas](https://mpatlas.org/) provides an easy-to-use,
+data-oriented application that helps members of the marine protection community
+better access, understand, and communicate key statistics on marine protection
+at multiple levels around the globe. This new version leverages the efforts of
+the Marine Conservation Institute to better evaluate the actual degree of marine
+protection in place for each marine protected area.
+
+This tool allows users to:
+
+- explore over 13,000 marine protected areas around the world
+- quickly filter marine protected areas according to different characteristics
+- view key statistics of worldwide protection
+- view country-level statistics of protection
+- view details for each marine protected area
+
+![Marine life](./images/noaa-KQgta9y73Tg-unsplash.jpg 'Photo by NOAA on Unsplash')
+
+<!-- https://unsplash.com/photos/KQgta9y73Tg -->
+
+### Streamlining data processing
+
+We worked closely with the Marine Conservation Institute to completely rebuild
+the Marine Protection Atlas using modern technology while also reducing the
+effort required to release updated information on marine protected areas.
+
+Historically, calculating worldwide and country-level statistics on marine
+protection involved several long-running, manual steps across multiple spatial
+analysis platforms. The underlying data are highly complex: we have to sort out
+issues around territorial sovereignty due to overlapping claims for exclusive
+economic zones, as well as rectify overlapping areas of marine protection due
+to different designating authorities or source databases.
+
+We developed a data processing pipeline using PostGIS and Python to better
+automate and streamline these tasks. This helps ensure that it is easier to
+update the key statistics as updated information on marine protected areas
+becomes available.
+
+![Fish](./images/noaa-vlvc-7nb2U8-unsplash.jpg 'Photo by NOAA on Unsplash')
+
+<!-- https://unsplash.com/photos/vlvc-7nb2U8 -->
+
+### Faster and feature-rich data exploration
+
+We developed a brand-new user interface using GatsbyJS and Mapbox GL. GatsbyJS
+allows us to build most of the website in advance, so that when users view it
+in their browser, it is _fast_. Mapbox GL allows us to visualize map data
+for over 13,000 marine protected areas and over 200 marine countries and territories
+using a very high-performance rendering engine in the browser. This makes it
+possible to easily filter marine protected areas by different criteria directly
+in the browser, without requiring a sophisticated GIS server (and associated
+licensing and / or maintenance costs).
+
+We created all of the data visualizations from scratch to best communicate
+highly-detailed information about marine protected areas without being visually
+overwhelming. This helps synthesize a large amount of related information about
+marine protection into a structure that makes it easy for members of the marine
+protection community to quickly access and share detailed data on marine protection.
