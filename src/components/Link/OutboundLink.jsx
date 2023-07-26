@@ -1,36 +1,28 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import GoogleAnalytics from 'react-ga'
+/** @jsxRuntime classic */
+/** @jsx jsx */
 
-const OutboundLink = ({ to, from, target, children, className }) => (
-  <a
-    href={to}
-    target={target}
-    className={className}
-    rel="noopener noreferrer"
-    onClick={() => {
-      GoogleAnalytics.event({
-        category: 'Outbound Link',
-        action: `[clicked] ${from}`,
-        label: to,
-      })
-    }}
-  >
+// eslint-disable-next-line no-unused-vars
+import React from 'react'
+import { OutboundLink as Link } from 'gatsby-plugin-google-gtag'
+import PropTypes from 'prop-types'
+import { jsx } from 'theme-ui'
+
+const OutboundLink = ({ to, target, rel, children, ...props }) => (
+  <Link href={to} target={target} rel={rel} {...props}>
     {children}
-  </a>
+  </Link>
 )
 
 OutboundLink.propTypes = {
   to: PropTypes.string.isRequired,
-  from: PropTypes.string.isRequired,
   target: PropTypes.string,
+  rel: PropTypes.string,
   children: PropTypes.any.isRequired,
-  className: PropTypes.string,
 }
 
 OutboundLink.defaultProps = {
   target: '_blank',
-  className: ``,
+  rel: 'noopener noreferrer',
 }
 
 export default OutboundLink

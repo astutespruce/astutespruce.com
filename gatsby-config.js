@@ -1,34 +1,56 @@
-const config = require('./config/site')
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
-    siteUrl: config.siteUrl,
-    title: config.siteTitle,
+    siteUrl: 'https://astutespruce.com',
+    title: 'Astute Spruce',
+    description: 'Astute Spruce, LLC website',
+    author: 'Brendan C. Ward',
+    organization: 'Astute Spruce, LLC',
+    contactEmail: `bcward@astutespruce.com`,
 
-    description: config.siteDescription,
-    keywords: config.siteKeywords,
-    // image: config.siteLogo,
-    author: {
-      name: config.author,
-      // minibio: config.minibio,
-    },
-    organization: {
-      name: config.organization,
-      url: config.siteUrl,
-      // logo: config.siteLogo,
-    },
+    // Social component
+    twitterHandle: 'astutespruce',
+    github: 'https://github.com/brendan-ward',
+    linkedin: 'https://www.linkedin.com/in/brendan-c-ward/',
 
-    language: config.language,
-
-    twitterHandle: config.twitterHandle,
-    // social: {
-    //   twitter: config.twitterHandle,
-    // },
     googleAnalyticsId: process.env.GATSBY_GOOGLE_ANALYTICS_ID,
     sentryDSN: process.env.GATSBY_SENTRY_DSN,
   },
+  flags: {
+    FAST_DEV: true,
+    DEV_SSR: true,
+  },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: process.env.GATSBY_GOOGLE_ANALYTICS_ID
+          ? [process.env.GATSBY_GOOGLE_ANALYTICS_ID]
+          : [],
+        gtagConfig: {
+          anonymize_ip: true,
+        },
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-theme-ui`,
+      options: {
+        injectColorFlashScript: false,
+      },
+    },
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -51,79 +73,41 @@ module.exports = {
       },
     },
     // {
-    //   resolve: `gatsby-source-filesystem`,
+    //   resolve: `gatsby-plugin-mdx`,
     //   options: {
-    //     name: `blog`,
-    //     path: `${__dirname}/src/content/blog/`,
+    //     extensions: ['.mdx', '.md'],
+    //     gatsbyRemarkPlugins: [
+    //       { resolve: 'gatsby-remark-copy-linked-files' },
+    //       {
+    //         resolve: 'gatsby-remark-images',
+    //         options: {
+    //           backgroundColor: '#fafafa',
+    //           linkImagesToOriginal: false,
+    //           showCaptions: true,
+    //           markdownCaptions: true,
+    //           maxWidth: 960,
+    //           withWebp: true,
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-remark-images',
+    //   options: {
+    //     backgroundColor: '#fafafa',
+    //     linkImagesToOriginal: false,
+    //     showCaptions: true,
+    //     markdownCaptions: true,
+    //     maxWidth: 960,
+    //     withWebp: true,
     //   },
     // },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          { resolve: 'gatsby-remark-copy-linked-files' },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              backgroundColor: '#fafafa',
-              linkImagesToOriginal: false,
-              showCaptions: true,
-              markdownCaptions: true,
-              maxWidth: 960,
-              withWebp: true,
-            },
-          },
-        ],
+        host: process.env.GATSBY_SITE_URL || `http://localhost:8000`,
       },
     },
-    {
-      resolve: 'gatsby-remark-images',
-      options: {
-        backgroundColor: '#fafafa',
-        linkImagesToOriginal: false,
-        showCaptions: true,
-        markdownCaptions: true,
-        maxWidth: 960,
-        withWebp: true,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        displayName: process.env.NODE_ENV !== `production`,
-        fileName: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `./config/typography.js`,
-      },
-    },
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-sitemap`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GATSBY_GOOGLE_ANALYTICS_ID,
-        anonymize: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleShort,
-        description: config.siteDescription,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: `standalone`,
-        // icon: `src/images/favicon.png`,
-      },
-    },
-    `gatsby-plugin-offline`,
   ],
 }
