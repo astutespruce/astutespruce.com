@@ -1,153 +1,138 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FaArrowRight } from 'react-icons/fa'
+import { Box, Flex, Paragraph, Text } from 'theme-ui'
+import { ArrowRight } from '@emotion-icons/fa-solid'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { Link } from 'components/Link'
-import { BannerImage } from 'components/Image'
-import { Box, Flex } from 'components/Grid'
-import { Text } from 'components/Text'
-import styled, { themeGet } from 'style'
-
-const Wrapper = styled(Box)`
-    &:not(:first-child) {
-        margin-top: 2rem;
-        padding-top: 2rem;
-        border-top: 1px solid ${themeGet('colors.grey.100')};
-    }
-`
-
-const Title = styled(Text).attrs({ fontSize: '1.5rem' })`
-    a {
-        text-decoration: none !important;
-        color: ${themeGet('colors.grey.900')};
-    }
-`
-
-const Client = styled(Text)``
-
-const Dates = styled(Text).attrs({ fontSize: 'smaller' })`
-    color: ${themeGet('colors.grey.700')};
-`
-
-const BannerContainer = styled(Box).attrs({ my: '0.5rem' })`
-    position: relative;
-    z-index: 1;
-`
-
-const BannerOverlay = styled(Flex).attrs({
-    alignItems: 'center',
-    justifyContent: 'center',
-})`
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    transition: opacity 200ms ease-in;
-
-    ${BannerContainer}:hover & {
-        opacity: 1;
-    }
-`
-
-const BannerLink = styled(Link)`
-    display: flex;
-    align-items: center;
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    text-decoration: none !important;
-`
-
-const Categories = styled(Text).attrs({ my: '1rem' })`
-    text-transform: uppercase;
-    font-size: smaller;
-    color: ${themeGet('colors.primary.700')};
-`
-
-const Description = styled(Text)``
-
-const MoreLink = styled(Link).attrs({})`
-    display: flex;
-    align-items: center;
-`
-
-const Arrow = styled(FaArrowRight)`
-    height: 1em;
-    width: 1em;
-    margin-left: 0.25em;
-    transition: margin-left 100ms ease-in;
-
-    ${MoreLink}:hover & {
-        margin-left: 0.75em;
-    }
-`
 
 const ProjectListItem = ({
-    fields: { slug },
-    frontmatter: {
-        title,
-        client,
-        startDate,
-        endDate,
-        banner: { src },
-        description,
-        categories,
+  fields: { slug },
+  frontmatter: {
+    title,
+    client,
+    startDate,
+    endDate,
+    banner: {
+      src: {
+        childImageSharp: { gatsbyImageData: image },
+      },
     },
-}) => {
-    return (
-        <Wrapper>
-            <Title>
-                <Link to={slug}>{title}</Link>
-            </Title>
+    description,
+    categories,
+  },
+}) => (
+  <Box
+    sx={{
+      '&:not(:first-of-type)': {
+        mt: '2rem',
+        pt: '2rem',
+        borderTop: '1px solid',
+        borderTopColor: 'grey.1',
+      },
+    }}
+  >
+    <Link to={slug} sx={{ color: 'text' }}>
+      <Text sx={{ fontSize: '1.5rem', fontWeight: 'bold' }}>{title}</Text>
+    </Link>
 
-            <BannerContainer>
-                <BannerImage src={src} height="14rem" minHeight="14rem" />
-                <BannerOverlay>
-                    <BannerLink to={slug}>
-                        <div>Read more</div>
-                        <Arrow />
-                    </BannerLink>
-                </BannerOverlay>
-            </BannerContainer>
+    <Box sx={{ my: '0.5rem', position: 'relative', zIndex: 1 }}>
+      <Box>
+        <GatsbyImage
+          image={image}
+          style={{ height: '14rem', minHeight: '14rem' }}
+          alt=""
+        />
+      </Box>
+      <Flex
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          opacity: 0,
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          backgroundColor: 'rgba(0,0,0,0.5)',
+          transition: 'opacity 200ms ease-in',
+          '&:hover': {
+            opacity: 1,
+          },
+        }}
+      >
+        <Link
+          to={slug}
+          sx={{
+            textDecoration: 'none',
+            '&:hover': {
+              textDecoration: 'none',
+            },
+          }}
+        >
+          <Flex
+            sx={{
+              alignItems: 'center',
+              color: '#FFF',
+              border: '1px solid #FFF',
+              borderRadius: '0.5rem',
+              p: '1rem',
+              gap: '0.5rem',
+            }}
+          >
+            <Text>Read more</Text>
+            <ArrowRight size="1.25rem" />
+          </Flex>
+        </Link>
+      </Flex>
+    </Box>
 
-            <Client>
-                <b>Client:</b> {client}
-            </Client>
-            <Dates>
-                {startDate} — {endDate || 'present'}
-            </Dates>
+    <Box>
+      <b>Client:</b> {client}
+    </Box>
+    <Box sx={{ fontSize: 'smaller', color: 'grey.8' }}>
+      {startDate} — {endDate || 'present'}
+    </Box>
 
-            <Categories>{categories.join(' | ')}</Categories>
+    <Box
+      sx={{
+        my: '1rem',
+        textTransform: 'uppercase',
+        fontSize: 'smaller',
+        color: 'green.7',
+      }}
+    >
+      {categories.join(' | ')}
+    </Box>
 
-            <Description>{description}</Description>
+    <Paragraph>{description}</Paragraph>
 
-            <MoreLink to={slug}>
-                <div>Read more</div>
-                <Arrow />
-            </MoreLink>
-        </Wrapper>
-    )
-}
+    <Flex>
+      <Link to={slug}>
+        <Flex sx={{ alignItems: 'center', gap: '0.5rem' }}>
+          <Text sx={{ flex: '0 0 auto' }}>Read more</Text>
+          <Box sx={{ flex: '0 0 auto' }}>
+            <ArrowRight size="1.25rem" />
+          </Box>
+        </Flex>
+      </Link>
+    </Flex>
+  </Box>
+)
 
 ProjectListItem.propTypes = {
-    frontmatter: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        banner: PropTypes.shape(BannerImage.propTypes),
-        description: PropTypes.string.isRequired,
-        startDate: PropTypes.string.isRequired,
-        endDate: PropTypes.string,
-        client: PropTypes.string.isRequired,
-        categories: PropTypes.arrayOf(PropTypes.string).isRequired,
-        // tech: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
-        // keywords: PropTypes.arrayOf(PropTypes.string),
-    }).isRequired,
-    fields: PropTypes.shape({
-        slug: PropTypes.string.isRequired,
-    }).isRequired,
+  frontmatter: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    banner: PropTypes.object.isRequired,
+    description: PropTypes.string.isRequired,
+    startDate: PropTypes.string.isRequired,
+    endDate: PropTypes.string,
+    client: PropTypes.string.isRequired,
+    categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  fields: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+  }).isRequired,
 }
 
 export default ProjectListItem

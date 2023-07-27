@@ -1,19 +1,46 @@
-const path = require('path')
+const path = require('path-browserify')
 const slugify = require('@sindresorhus/slugify')
 
-const extractNodes = ({ edges }) => edges.map(({ node }) => node)
-
-/**
- * Enable absolute imports with `/src` as root.
- *
- * See: https://github.com/alampros/gatsby-plugin-resolve-src/issues/4
- */
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
+exports.onCreateWebpackConfig = ({ actions, stage, loaders, plugins }) => {
+  const config = {
     resolve: {
+      alias: {
+        assert: require.resolve('assert'),
+        os: require.resolve('os-browserify/browser'),
+        path: require.resolve('path-browserify'),
+        stream: require.resolve('stream-browserify'),
+        util: require.resolve('util'),
+        zlib: require.resolve('browserify-zlib'),
+      },
+      fallback: {
+        fs: false,
+        crypto: false,
+      },
+
+      // Enable absolute imports with `/src` as root.
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
-  })
+    plugins: [
+      plugins.provide({
+        process: 'process/browser',
+        Buffer: ['buffer', 'Buffer'],
+      }),
+    ],
+  }
+
+  // when building HTML, window is not defined, so maplibre-gl causes the build to blow up
+  if (stage === 'build-html') {
+    config.module = {
+      rules: [
+        {
+          test: /maplibre-gl/,
+          use: loaders.null(),
+        },
+      ],
+    }
+  }
+
+  actions.setWebpackConfig(config)
 }
 
 exports.createSchemaCustomization = ({ actions: { createTypes } }) => {
@@ -78,86 +105,45 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: 'slug',
       node,
-      value: `/${contentType}/${slug ||
-        slugify(filename === 'index' ? relativeDirectory : filename)}`,
+      value: `/${contentType}/${
+        slug || slugify(filename === 'index' ? relativeDirectory : filename)
+      }`,
     })
   }
 }
 
-// const createBlogPosts = (posts, createPage) => {
-//   posts.forEach(({ id, fields: { slug: pagePath } }, i) => {
-//     const prev = i === 0 ? null : posts[i - 1]
-//     const next = i === posts.length - 1 ? null : posts[i + 1].node
-
-//     createPage({
-//       path: pagePath,
-//       component: path.resolve(`./src/templates/BlogPost.jsx`),
-//       context: {
-//         id,
-//         prev,
-//         next,
-//       },
-//     })
-//   })
-// }
-
-const createProjectPages = (projects, createPage) => {
-  projects.forEach(({ id, fields: { slug: pagePath } }) => {
-    createPage({
-      path: pagePath,
-      component: path.resolve(`./src/templates/Project.jsx`),
-      context: {
-        id,
-      },
-    })
-  })
-}
-
-// blog: allMdx(
-//   filter: {
-//     frontmatter: { date: { ne: null } }
-//     fileAbsolutePath: { regex: "//content/blog//" }
-//   }
-//   sort: { order: DESC, fields: [frontmatter___date] }
-// ) {
-//   edges {
-//     node {
-//       ...MDXDetails
-//     }
-//   }
-// }
-
-exports.createPages = async ({ actions, reporter, graphql }) => {
-  const { createPage } = actions
-
+exports.createPages = async ({
+  actions: { createPage },
+  reporter,
+  graphql,
+}) => {
   const { data, errors } = await graphql(`
-    fragment MDXDetails on Mdx {
-      fileAbsolutePath
-      id
-      parent {
-        ... on File {
-          name
-          sourceInstanceName
-        }
-      }
-      excerpt(pruneLength: 250)
-      frontmatter {
-        title
-        description
-        date
-      }
-      fields {
-        slug
-      }
-    }
     query {
       projects: allMdx(
-        filter: { fileAbsolutePath: { regex: "//content/projects//" } }
-        sort: { order: DESC, fields: [frontmatter___endDate] }
+        filter: { internal: { contentFilePath: { regex: "/projects/" } } }
+        sort: { frontmatter: { endDate: DESC } }
       ) {
         edges {
           node {
-            ...MDXDetails
+            id
+            parent {
+              ... on File {
+                name
+                sourceInstanceName
+              }
+            }
+            internal {
+              contentFilePath
+            }
+            excerpt(pruneLength: 250)
+            frontmatter {
+              title
+              description
+              date
+            }
+            fields {
+              slug
+            }
           }
         }
       }
@@ -169,8 +155,28 @@ exports.createPages = async ({ actions, reporter, graphql }) => {
     return
   }
 
-  const { projects } = data
+  const template = path.resolve('./src/templates/Project.jsx')
 
-  // createBlogPosts(extractNodes(blog), createPage)
-  createProjectPages(extractNodes(projects), createPage)
+  const {
+    projects: { edges: projects },
+  } = data
+
+  projects.forEach(
+    ({
+      node: {
+        id,
+        internal: { contentFilePath },
+        fields: { slug: pagePath },
+      },
+    }) => {
+      createPage({
+        path: pagePath,
+        // component: path.resolve(`./src/templates/Project.jsx`),
+        component: `${template}?__contentFilePath=${contentFilePath}`,
+        context: {
+          id,
+        },
+      })
+    }
+  )
 }

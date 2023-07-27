@@ -2,41 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import { Box, Container } from 'components/Grid'
-import Layout from 'components/Layout'
-import SEO from 'components/SEO'
-import { BannerImage } from 'components/Image'
+import { Box, Container, Heading } from 'theme-ui'
+import { Layout, SEO } from 'components/Layout'
 import { ListItem } from 'components/Project'
-import { extractNodes } from 'util/graphql'
-import styled from 'style'
 
-const List = styled(Box)``
-
-const Projects = ({ data: { banner, allMdx } }) => {
-  const projects = extractNodes(allMdx)
+const Projects = ({
+  data: {
+    allMdx: { edges: projectNodes },
+  },
+}) => {
+  const projects = projectNodes.map(({ node }) => node)
 
   return (
     <Layout>
-      <SEO
-        title="Projects"
-        description="Astute Spruce projects"
-        extra={{ slug: 'projects' }}
-      />
-
-      {/* <BannerImage
-        src={banner}
-        credit="Kimberly Farmer"
-        url="https://unsplash.com/photos/lUaaKCUANVI"
-      /> */}
-
       <Container>
-        <h1>Recent Projects</h1>
+        <Heading as="h1" sx={{ mb: '2rem' }}>
+          Recent Projects
+        </Heading>
 
-        <List>
-          {projects.map(project => (
+        <Box>
+          {projects.map((project) => (
             <ListItem key={project.id} {...project} />
           ))}
-        </List>
+        </Box>
       </Container>
     </Layout>
   )
@@ -44,18 +32,9 @@ const Projects = ({ data: { banner, allMdx } }) => {
 
 export const pageQuery = graphql`
   query {
-    banner: file(
-      relativePath: { eq: "kimberly-farmer-lUaaKCUANVI-unsplash.jpg" }
-    ) {
-      childImageSharp {
-        fluid(maxWidth: 3200) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
     allMdx(
-      filter: { fileAbsolutePath: { regex: "//content/projects//" } }
-      sort: { order: DESC, fields: [frontmatter___endDate] }
+      filter: { internal: { contentFilePath: { regex: "/projects/" } } }
+      sort: { frontmatter: { endDate: DESC } }
     ) {
       edges {
         node {
@@ -68,7 +47,15 @@ export const pageQuery = graphql`
             startDate(formatString: "MMM D, YYYY")
             endDate(formatString: "MMM D, YYYY")
             banner {
-              ...Banner
+              src {
+                childImageSharp {
+                  gatsbyImageData(
+                    layout: FULL_WIDTH
+                    formats: [AUTO, WEBP]
+                    placeholder: BLURRED
+                  )
+                }
+              }
             }
           }
           fields {
@@ -82,7 +69,6 @@ export const pageQuery = graphql`
 
 Projects.propTypes = {
   data: PropTypes.shape({
-    banner: PropTypes.object.isRequired,
     allMdx: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
@@ -94,3 +80,5 @@ Projects.propTypes = {
 }
 
 export default Projects
+
+export const Head = () => <SEO title="Projects" />

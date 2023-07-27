@@ -1,5 +1,4 @@
-import FluidImage from './Fluid'
-import InsetFluidImage from './InsetFluid'
-import BannerImage from './Banner'
+import Credits from './Credits'
+import HeaderImage from './HeaderImage'
 
-export { FluidImage, InsetFluidImage, BannerImage }
+export { Credits, HeaderImage }

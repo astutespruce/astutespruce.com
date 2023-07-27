@@ -1,57 +1,55 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { Box, Container, Heading, Flex, Divider, Paragraph } from 'theme-ui'
+// import {
+//   FaGlobeAmericas,
+//   FaChartBar,
+//   FaPeopleCarry,
+//   FaCogs,
+// } from 'react-icons/fa'
 import {
-  FaGlobeAmericas,
-  FaChartBar,
-  FaPeopleCarry,
-  FaCogs,
-} from 'react-icons/fa'
+  GlobeAmericas,
+  ChartBar,
+  PeopleCarry,
+  Cogs,
+} from '@emotion-icons/fa-solid'
 
-import styled, { theme, themeGet } from 'style'
-import Layout from 'components/Layout'
-import { Box, Container, Flex } from 'components/Grid'
-import SEO from 'components/SEO'
-import { FluidImage } from 'components/Image'
+import { Layout, SEO } from 'components/Layout'
+
+import { HeaderImage } from 'components/Image'
 import { OutboundLink } from 'components/Link'
 
-const iconColor = theme.colors.grey[600]
+// const iconColor = theme.colors.grey[600]
 
-const ServiceBox = styled(Box)`
-  &:not(:first-of-type) {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid ${themeGet('colors.grey.100')};
-  }
-`
-
-const ServiceBoxHeader = styled(Flex)`
-  h3 {
-    margin: 0 0 0 0.5em;
-  }
-  align-items: center;
-  margin-bottom: 0.5rem;
-`
-
-const ServicesPage = ({ data: { headerImage } }) => (
+const ServicesPage = ({
+  data: {
+    headerImage: {
+      childImageSharp: { gatsbyImageData: headerImage },
+    },
+  },
+}) => (
   <Layout>
-    <SEO title="Services" />
-    <FluidImage
-      image={headerImage.childImageSharp.fluid}
+    <HeaderImage
+      image={headerImage}
       credits={{
         url: 'https://unsplash.com/photos/y6X3oiDQQtY',
         author: 'Thomas Millot',
       }}
     />
     <Container>
-      <h1>How I can help you</h1>
+      <Heading as="h1" sx={{ mb: '1.5rem' }}>
+        How I can help you
+      </Heading>
 
-      <ServiceBox>
-        <ServiceBoxHeader>
-          <FaGlobeAmericas size="2rem" fill={iconColor} />
-          <h3>Map & Data Visualization</h3>
-        </ServiceBoxHeader>
-        <p>
+      <Box>
+        <Flex sx={{ alignItems: 'center', gap: '1rem', mb: '0.5rem' }}>
+          <Box sx={{ color: 'grey.6' }}>
+            <GlobeAmericas size="2rem" />
+          </Box>
+          <Heading as="h3">Map & Data Visualization</Heading>
+        </Flex>
+        <Paragraph>
           I specialize in leveraging and creating cutting-edge web mapping and
           data visualization technologies to make scientific data more
           accessible and informative. I create custom solutions to meet domain
@@ -61,47 +59,32 @@ const ServicesPage = ({ data: { headerImage } }) => (
           <br />I can help you understand and leverage these cutting-edge
           technologies and approaches to empower your stakeholders and amplify
           your impact.
-        </p>
-        <ul>
+        </Paragraph>
+        <Box as="ul" sx={{ mt: '0.5rem' }}>
           <li>
             I am an expert in{' '}
-            <OutboundLink from="/services" to="https://leafletjs.com/">
-              Leaflet
-            </OutboundLink>
-            , a web-mapping library perfect for simpler projects. I created
-            several{' '}
-            <OutboundLink
-              from="/services"
-              to="https://github.com/search?utf8=%E2%9C%93&q=topic%3Aleaflet+org%3Aconsbio+&type="
-            >
+            <OutboundLink to="https://leafletjs.com/">Leaflet</OutboundLink>, a
+            web-mapping library perfect for simpler projects. I created several{' '}
+            <OutboundLink to="https://github.com/search?utf8=%E2%9C%93&q=topic%3Aleaflet+org%3Aconsbio+&type=">
               open-source plugins
             </OutboundLink>{' '}
             for common components across projects.
           </li>
           <li>
             I am an expert in{' '}
-            <OutboundLink
-              from="/services"
-              to="https://github.com/mapbox/mapbox-gl-js"
-            >
+            <OutboundLink to="https://github.com/mapbox/mapbox-gl-js">
               Mapbox GL
             </OutboundLink>
             , an advanced web-mapping library with high performance for complex
             data. I created a{' '}
-            <OutboundLink
-              from="/services"
-              to="https://github.com/consbio/mbgl-renderer"
-            >
+            <OutboundLink to="https://github.com/consbio/mbgl-renderer">
               library for making map images
             </OutboundLink>{' '}
             for offline documents, such as downloadable reports.
           </li>
           <li>
             I created a lightweight{' '}
-            <OutboundLink
-              from="/services"
-              to="https://github.com/consbio/mbtileserver"
-            >
+            <OutboundLink to="https://github.com/consbio/mbtileserver">
               image and vector map tile server
             </OutboundLink>{' '}
             used across several projects to save costs and maintenance
@@ -109,24 +92,25 @@ const ServicesPage = ({ data: { headerImage } }) => (
           </li>
           <li>
             I developed a novel approach to{' '}
-            <OutboundLink
-              from="/services"
-              to="https://github.com/brendan-ward/datatiles"
-            >
+            <OutboundLink to="https://github.com/brendan-ward/datatiles">
               encoding raster data
             </OutboundLink>{' '}
             to power real-time data exploration in the browser without requiring
             complex map-server technology.
           </li>
-        </ul>
-      </ServiceBox>
+        </Box>
+      </Box>
 
-      <ServiceBox>
-        <ServiceBoxHeader>
-          <FaChartBar size="2rem" fill={iconColor} />
-          <h3>Data Processing & Analysis</h3>
-        </ServiceBoxHeader>
-        <p>
+      <Divider variant="styles.hr.light" />
+
+      <Box>
+        <Flex sx={{ alignItems: 'center', gap: '1rem', mb: '0.5rem' }}>
+          <Box sx={{ color: 'grey.6' }}>
+            <ChartBar size="2rem" />
+          </Box>
+          <Heading as="h3">Data Processing & Analysis</Heading>
+        </Flex>
+        <Paragraph>
           I am passionate about using my software development skills to help
           scientists and science-based organizations better use and interpret
           their data. I turn painfully slow and error-prone manual data
@@ -136,8 +120,8 @@ const ServicesPage = ({ data: { headerImage } }) => (
           <br />I can help you identify and develop novel solutions for your
           data processing needs. Once we have created these, you will be more
           efficient and able to focus your expertise on advancing your science.
-        </p>
-        <ul>
+        </Paragraph>
+        <Box as="ul" sx={{ mt: '0.5rem' }}>
           <li>
             I developed a rule-based classification tool to help vegetation
             ecologists classify information from many thousands of field plots
@@ -145,10 +129,7 @@ const ServicesPage = ({ data: { headerImage } }) => (
           </li>
           <li>
             I created an intuitive{' '}
-            <OutboundLink
-              from="/services"
-              to="https://github.com/brendan-ward/echoclean"
-            >
+            <OutboundLink to="https://github.com/brendan-ward/echoclean">
               rule-based classification tool
             </OutboundLink>{' '}
             to help bat ecologists leverage expert knowledge to overcome
@@ -160,26 +141,24 @@ const ServicesPage = ({ data: { headerImage } }) => (
           <li>
             When existing tools could not scale to larger volumes of data,
             seriously jeopardizing my clients&apos; ability to meet their
-            deadlines, I created a new{' '}
-            <OutboundLink
-              from="/services"
-              to="https://github.com/brendan-ward/nhdnet"
-            >
-              data processing pipeline
-            </OutboundLink>{' '}
-            to efficiently process the most detailed data on rivers and streams
-            in the U.S. This allowed us to leverage higher quality data and
-            still meet critical deadlines.
+            deadlines, I created a new data processing pipeline to efficiently
+            process the most detailed data on rivers and streams in the U.S.
+            This allowed us to leverage higher quality data and still meet
+            critical deadlines.
           </li>
-        </ul>
-      </ServiceBox>
+        </Box>
+      </Box>
 
-      <ServiceBox>
-        <ServiceBoxHeader>
-          <FaPeopleCarry size="2rem" fill={iconColor} />
-          <h3>Data Sharing</h3>
-        </ServiceBoxHeader>
-        <p>
+      <Divider variant="styles.hr.light" />
+
+      <Box>
+        <Flex sx={{ alignItems: 'center', gap: '1rem', mb: '0.5rem' }}>
+          <Box sx={{ color: 'grey.6' }}>
+            <PeopleCarry size="2rem" />
+          </Box>
+          <Heading as="h3">Data Sharing</Heading>
+        </Flex>
+        <Paragraph>
           My professional career has been focused on making data more
           accessible. I help define and develop data sharing approaches to turn
           scientific data into broader impacts for a wide range of stakeholders.
@@ -188,19 +167,16 @@ const ServicesPage = ({ data: { headerImage } }) => (
           evaluate tradeoffs in data sharing and integration approaches, and
           identify solutions that will allow your organization to amplify the
           broader impact of your data.
-        </p>
-        <ul>
+        </Paragraph>
+        <Box as="ul" sx={{ mt: '0.5rem' }}>
           <li>
             I led the development team at the{' '}
-            <OutboundLink from="/services" to="https://consbio.org">
+            <OutboundLink to="https://consbio.org">
               Conservation Biology Institute
             </OutboundLink>{' '}
             that created the largest and most functional conservation data
             sharing platform in the world:{' '}
-            <OutboundLink from="/services" to="https://databasin.org">
-              Data Basin
-            </OutboundLink>
-            .
+            <OutboundLink to="https://databasin.org">Data Basin</OutboundLink>.
           </li>
           <li>
             I have successfully led multi-organization teams to define, pilot,
@@ -217,21 +193,25 @@ const ServicesPage = ({ data: { headerImage } }) => (
             quality deliverables for our clients compared to other contractors
             responsible for other regions.
           </li>
-        </ul>
-      </ServiceBox>
+        </Box>
+      </Box>
 
-      <ServiceBox>
-        <ServiceBoxHeader>
-          <FaCogs size="2rem" fill={iconColor} />
-          <h3>Consulting</h3>
-        </ServiceBoxHeader>
-        <p>
+      <Divider variant="styles.hr.light" />
+
+      <Box>
+        <Flex sx={{ alignItems: 'center', gap: '1rem', mb: '0.5rem' }}>
+          <Box sx={{ color: 'grey.6' }}>
+            <Cogs size="2rem" />
+          </Box>
+          <Heading as="h3">Consulting</Heading>
+        </Flex>
+        <Paragraph>
           Just need advice on how to approach a data visualization, processing,
           or sharing project? Need assistance leveraging the state of the art
           technologies to increase the impact of your organization? I am here to
           help.
-        </p>
-      </ServiceBox>
+        </Paragraph>
+      </Box>
     </Container>
   </Layout>
 )
@@ -247,12 +227,16 @@ export const pageQuery = graphql`
       relativePath: { eq: "thomas-millot-1297305-unsplash.jpg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 3200) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          formats: [AUTO, WEBP]
+          placeholder: BLURRED
+        )
       }
     }
   }
 `
 
 export default ServicesPage
+
+export const Head = () => <SEO title="Services" />

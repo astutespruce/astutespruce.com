@@ -1,177 +1,179 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import get from 'lodash/get'
+import { MDXProvider } from '@mdx-js/react'
 
-import { Title as BaseTitle, Text } from 'components/Text'
-import { Box, Container, Flex } from 'components/Grid'
-import Layout from 'components/Layout'
-import SEO from 'components/SEO'
-import { BannerImage } from 'components/Image'
-import styled, { themeGet } from 'style'
-
-const Title = styled(BaseTitle)`
-    font-size: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
-`
-
-const Info = styled(Box)``
-
-const Client = styled(Text).attrs({ fontSize: '1.25rem' })``
-
-const Dates = styled(Text).attrs({ fontSize: 'smaller' })`
-    color: ${themeGet('colors.grey.700')};
-`
-
-const Categories = styled(Text).attrs({ my: '1rem' })`
-    text-transform: uppercase;
-    font-size: smaller;
-    color: ${themeGet('colors.primary.600')};
-`
-
-const MDXContent = styled(Box).attrs({ pt: '1rem', mt: '1rem' })`
-    border-top: 1px solid ${themeGet('colors.grey.100')};
-
-    h1,
-    h2,
-    h3 {
-        margin-bottom: 0.5rem;
-    }
-
-    figcaption {
-        text-align: center;
-        color: ${themeGet('colors.grey.700')};
-        font-size: smaller;
-    }
-
-    ul {
-        margin-left: 2rem !important;
-    }
-
-    ul li {
-        margin-bottom: 0.5rem;
-    }
-
-    p + ul {
-        margin-top: -1rem;
-    }
-
-    p + h3 {
-        margin-top: 2rem;
-    }
-`
-
-const List = styled.ul`
-    li {
-        margin-bottom: 0.25rem;
-    }
-`
-
-const Tech = styled(Box).attrs({ pt: '1rem', mt: '1rem' })`
-    border-top: 1px solid ${themeGet('colors.grey.100')};
-`
+import { Box, Container, Heading } from 'theme-ui'
+import { Layout, SEO } from 'components/Layout'
+import { HeaderImage } from 'components/Image'
 
 const ProjectTemplate = ({
-    data: {
-        project: {
-            body,
-            frontmatter: { title, client, startDate, endDate, categories, banner, description, keywords, tech },
-            fields: { slug },
+  data: {
+    project: {
+      frontmatter: {
+        title,
+        client,
+        startDate,
+        endDate,
+        categories,
+        banner: {
+          src: {
+            childImageSharp: { gatsbyImageData: image },
+          },
+          url: imageURL,
+          credits: imageAuthor,
+          caption: imageCaption,
         },
+        tech,
+      },
     },
-}) => {
-    return (
-        <Layout>
-            <SEO
-                title={title}
-                description={description}
-                keywords={keywords || categories}
-                image={get(banner, 'src.childImageSharp.fluid.src')}
-                extra={{ slug }}
-            />
+  },
+  children,
+}) => (
+  <Layout>
+    <HeaderImage
+      image={image}
+      credits={{ url: imageURL, author: imageAuthor }}
+      caption={imageCaption}
+    />
 
-            {banner ? <BannerImage {...banner} /> : null}
+    <Container>
+      <Heading as="h2" sx={{ fontSize: ['1.5rem', '2rem'], mb: '0.5rem' }}>
+        {title}
+      </Heading>
 
-            <Container>
-                <Title>{title}</Title>
+      <Box>
+        <Box sx={{ fontSize: '1.25rem' }}>
+          <b>Client:</b> {client}
+        </Box>
+        <Box sx={{ color: 'grey.8' }}>
+          {startDate} — {endDate || 'present'}
+        </Box>
 
-                <Info>
-                    <Client>
-                        <b>Client:</b> {client}
-                    </Client>
-                    <Dates>
-                        {startDate} — {endDate || 'present'}
-                    </Dates>
+        <Box
+          sx={{
+            my: '1rem',
+            textTransform: 'uppercase',
+            fontSize: 'smaller',
+            color: 'green.6',
+          }}
+        >
+          {categories.join(' | ')}
+        </Box>
+      </Box>
 
-                    <Categories>{categories.join(' | ')}</Categories>
-                </Info>
+      <Box
+        sx={{
+          pt: '1rem',
+          mt: '1rem',
+          borderTop: '1px solid',
+          borderTopColor: 'grey.1',
+          figcaption: {
+            textAlign: 'center',
+            color: 'grey.8',
+            fontSize: 'smaller',
+            mb: '2rem',
+          },
+          'p + ul': {
+            mt: '-1rem',
+          },
+          'p + h3': {
+            mt: '2rem',
+          },
+        }}
+      >
+        <MDXProvider>{children}</MDXProvider>
+      </Box>
 
-                <MDXContent>
-                    <MDXRenderer>{body}</MDXRenderer>
-                </MDXContent>
-
-                {tech && tech.length ? (
-                    <Tech>
-                        <b>Technologies used:</b>
-                        <br />
-                        <List>
-                            {tech.map(labels => (
-                                <li key={labels.join('_')}>{labels.join(', ')}</li>
-                            ))}
-                        </List>
-                    </Tech>
-                ) : null}
-            </Container>
-        </Layout>
-    )
-}
+      {tech && tech.length ? (
+        <Box
+          sx={{
+            pt: '1rem',
+            mt: '1rem',
+            borderTop: '1px solid',
+            borderTopColor: 'grey.1',
+          }}
+        >
+          <b>Technologies used:</b>
+          <br />
+          <Box as="ul">
+            {tech.map((labels) => (
+              <li key={labels.join('_')}>{labels.join(', ')}</li>
+            ))}
+          </Box>
+        </Box>
+      ) : null}
+    </Container>
+  </Layout>
+)
 
 export const pageQuery = graphql`
-    query($id: String!) {
-        project: mdx(fields: { id: { eq: $id } }) {
-            frontmatter {
-                title
-                client
-                startDate(formatString: "MMM D, YYYY")
-                endDate(formatString: "MMM D, YYYY")
-                categories
-                banner {
-                    ...Banner
-                }
-                description
-                tech
-                keywords
+  query ($id: String!) {
+    project: mdx(fields: { id: { eq: $id } }) {
+      frontmatter {
+        title
+        client
+        startDate(formatString: "MMM D, YYYY")
+        endDate(formatString: "MMM D, YYYY")
+        categories
+        banner {
+          src {
+            childImageSharp {
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                formats: [AUTO, WEBP]
+                placeholder: BLURRED
+              )
             }
-            fields {
-                slug
-            }
-            body
+          }
+          url
+          credits
+          caption
         }
+        description
+        tech
+        keywords
+      }
+      fields {
+        slug
+      }
+      body
     }
+  }
 `
 
 ProjectTemplate.propTypes = {
-    data: PropTypes.shape({
-        project: PropTypes.shape({
-            body: PropTypes.string.isRequired,
-            frontmatter: PropTypes.shape({
-                title: PropTypes.string.isRequired,
-                client: PropTypes.string.isRequired,
-                startDate: PropTypes.string.isRequired,
-                endDate: PropTypes.string,
-                categories: PropTypes.arrayOf(PropTypes.string).isRequired,
-                banner: PropTypes.shape(BannerImage.propTypes),
-                description: PropTypes.string.isRequired,
-                tech: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
-                keywords: PropTypes.arrayOf(PropTypes.string),
-            }),
-            fields: PropTypes.shape({
-                slug: PropTypes.string.isRequired,
-            }),
-        }).isRequired,
+  data: PropTypes.shape({
+    project: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        client: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string,
+        categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+        banner: PropTypes.object.isRequired,
+        description: PropTypes.string.isRequired,
+        tech: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+        keywords: PropTypes.arrayOf(PropTypes.string),
+      }),
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }),
     }).isRequired,
+  }).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]).isRequired,
 }
 
 export default ProjectTemplate
+
+/* eslint-disable react/prop-types */
+export const Head = ({
+  data: {
+    project: {
+      frontmatter: { title },
+    },
+  },
+}) => <SEO title={title} />
