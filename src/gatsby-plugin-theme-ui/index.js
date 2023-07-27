@@ -94,19 +94,28 @@ export default {
       lineHeight: 'body',
       h1: {
         variant: 'text.heading',
+        fontFamily: 'heading',
+        lineHeight: 'heading',
         fontSize: [5, 6],
         mb: '1rem',
       },
       h2: {
         variant: 'text.heading',
+        fontFamily: 'heading',
+        lineHeight: 'heading',
         fontSize: [5, 6],
       },
       h3: {
         variant: 'text.heading',
+        fontFamily: 'heading',
+        lineHeight: 'heading',
         fontSize: [4, 5],
+        my: 0,
       },
       h4: {
         variant: 'text.heading',
+        fontFamily: 'heading',
+        lineHeight: 'heading',
         fontSize: [2, 3],
       },
       a: {
@@ -116,11 +125,37 @@ export default {
           textDecoration: 'underline',
         },
       },
+      p: {
+        fontSize: 3,
+        lineHeight: 'body',
+        pb: '0.5rem',
+      },
       ul: {
         fontSize: 3,
+        my: 0,
         'li + li': {
-          mt: '0.75em',
+          mt: '0.5em',
         },
+      },
+      code: {
+        bg: 'grey.1',
+        py: '0.1em',
+        px: '0.25em',
+        borderRadius: '0.25em',
+      },
+      blockquote: {
+        bg: 'grey.1',
+        p: '1em',
+        borderRadius: '0.5em',
+        fontStyle: 'italic',
+        mb: '2rem',
+        '& p': {
+          m: 0,
+          pb: 0,
+        },
+      },
+      figure: {
+        margin: 0,
       },
     },
     hr: {

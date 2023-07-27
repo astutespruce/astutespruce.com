@@ -72,37 +72,37 @@ module.exports = {
         path: `${__dirname}/src/content/projects/`,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-mdx`,
-    //   options: {
-    //     extensions: ['.mdx', '.md'],
-    //     gatsbyRemarkPlugins: [
-    //       { resolve: 'gatsby-remark-copy-linked-files' },
-    //       {
-    //         resolve: 'gatsby-remark-images',
-    //         options: {
-    //           backgroundColor: '#fafafa',
-    //           linkImagesToOriginal: false,
-    //           showCaptions: true,
-    //           markdownCaptions: true,
-    //           maxWidth: 960,
-    //           withWebp: true,
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
-    // {
-    //   resolve: 'gatsby-remark-images',
-    //   options: {
-    //     backgroundColor: '#fafafa',
-    //     linkImagesToOriginal: false,
-    //     showCaptions: true,
-    //     markdownCaptions: true,
-    //     maxWidth: 960,
-    //     withWebp: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          { resolve: 'gatsby-remark-copy-linked-files' },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              backgroundColor: '#fafafa',
+              linkImagesToOriginal: false,
+              showCaptions: true,
+              markdownCaptions: true,
+              maxWidth: 960,
+              withWebp: true,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-remark-images',
+      options: {
+        backgroundColor: '#fafafa',
+        linkImagesToOriginal: false,
+        showCaptions: true,
+        markdownCaptions: true,
+        maxWidth: 960,
+        withWebp: true,
+      },
+    },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

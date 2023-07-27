@@ -30,7 +30,6 @@ const HeaderImage = ({
           position: 'relative',
           top: 0,
           zIndex: 0,
-          borderTop: '4px solid #FFF',
           height,
           minHeight,
           maxHeight: maxHeight || height,

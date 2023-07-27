@@ -4,7 +4,7 @@ import { useStaticQuery, graphql, withPrefix } from 'gatsby'
 
 // preload fonts so there is no flash of unstyled fonts
 const fonts = [
-  'Cinzel-Bold',
+  'Cinzel-Bold.woff2',
   'Lato-Regular.woff2',
   'Lato-Bold.woff2',
   'Lato-Italic.woff2',

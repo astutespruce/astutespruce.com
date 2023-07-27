@@ -38,7 +38,7 @@ const Employment = ({
           &nbsp;&nbsp;|&nbsp;&nbsp;{start}
           {end ? `—${end}` : null}
         </Text>
-        <Text sx={{ fontStyle: 'italic', color: 'grey.7' }}>{location}</Text>
+        <Text sx={{ fontStyle: 'italic', color: 'grey.8' }}>{location}</Text>
       </>
     </Box>
     {children !== null ? (
