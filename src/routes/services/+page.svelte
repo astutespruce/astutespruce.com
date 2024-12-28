@@ -3,7 +3,6 @@
     import ChartLine from 'lucide-svelte/icons/chart-line'
     import Database from 'lucide-svelte/icons/database-zap'
     import MessageCircleMore from 'lucide-svelte/icons/message-circle-more'
-
     import { HeaderImage, ImageCredit } from '$lib/components/image'
     import Img from '$lib/assets/images/thomas-millot-1297305-unsplash.jpg'
 </script>
@@ -12,7 +11,7 @@
 <ImageCredit author="Thomas Millot" url="https://unsplash.com/photos/y6X3oiDQQtY" />
 
 <div class="container pb-20">
-    <h1 class="text-3xl md:text-5xl lg:text-6xl">How I can help you</h1>
+    <h1 class="mt-6 text-3xl md:text-5xl lg:text-6xl">How I can help you</h1>
 
     <div class="mt-6 flex items-center gap-4 md:mt-12">
         <Globe class="text-muted-foreground" size="2.5rem" />
