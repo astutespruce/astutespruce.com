@@ -42,7 +42,7 @@
         What this means for you:
     </p>
 
-    <ul class="ml-4 mt-2 text-lg">
+    <ul class="mt-2">
         <li>
             I am passionately curious about understanding what you do and WHY, so that I can understand your data and
             leverage that to increase your impact.
@@ -76,7 +76,7 @@
                 <br />
                 What this means for you:
             </p>
-            <ul class="ml-4 mt-2 text-lg">
+            <ul class="mt-2">
                 <li>
                     I will work closely with you from the very beginning of a project to identify the real needs we are
                     trying to solve. At each step in the development process, we measure ourselves against the impact we
@@ -100,7 +100,7 @@
                 <br />
                 What this means for you:
             </p>
-            <ul class="ml-4 mt-2 text-lg">
+            <ul class="mt-2">
                 <li>
                     I will actively involve you in the design and overall approach used for a project, and help you to
                     understand the tradeoffs in design, implementation, and hosting options.
@@ -134,7 +134,7 @@
                 <br /><br />
                 What this means for you:
             </p>
-            <ul class="ml-4 mt-2 text-lg">
+            <ul class="mt-2">
                 <li>
                     While I actively keep up on the latest trends and tools, I only leverage tools and approaches that
                     best meet the need at hand with the lowest effort over the long term. Sometimes, a far simpler but
@@ -157,7 +157,7 @@
                 <br /><br />
                 What this means for you:
             </p>
-            <ul class="ml-4 mt-2 text-lg">
+            <ul class="mt-2">
                 <li>
                     I will leverage a range of open source solutions to deliver your project, including open source
                     applications and libraries I&apos;ve created. Depending on the project, I will actively seek out
