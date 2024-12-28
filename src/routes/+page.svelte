@@ -1,5 +1,6 @@
 <script>
     import { ImageCredit } from '$lib/components/image'
+    import { Button } from '$lib/components/ui/button'
 </script>
 
 <svelte:head>
@@ -7,6 +8,12 @@
 </svelte:head>
 
 <div class="container mt-10">
+    <Button
+        onclick={() => {
+            throw new Error('Sentry Frontend Error')
+        }}>Sentry test</Button
+    >
+
     <h1 class="text-5xl md:text-6xl lg:text-9xl">A complex world</h1>
     <h2 class="mt-2 text-3xl md:text-5xl lg:mt-10 lg:text-5xl">needs simpler solutions.</h2>
 
