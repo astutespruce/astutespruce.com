@@ -10,7 +10,7 @@
 <HeaderImage src={Img} class="min-h-64" />
 <ImageCredit author="Elias Arnar" url="https://unsplash.com/photos/7efP-a8ZK54" />
 
-<div class="container">
+<div class="container pb-20">
     <p class="mt-6 text-2xl md:text-3xl">
         <a href="mailto:bcward@astutespruce.com">Brendan C. Ward</a> founded Astute Spruce in 2019 to work with science-based
         organizations to shape a healthier world.
