@@ -7,6 +7,10 @@
     import { positions } from './positions'
 </script>
 
+<svelte:head>
+    <title>About | Astute Spruce</title>
+</svelte:head>
+
 <HeaderImage src={Img} class="min-h-64" />
 <ImageCredit author="Elias Arnar" url="https://unsplash.com/photos/7efP-a8ZK54" />
 

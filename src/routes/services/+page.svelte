@@ -7,6 +7,10 @@
     import Img from '$lib/assets/images/thomas-millot-1297305-unsplash.jpg'
 </script>
 
+<svelte:head>
+    <title>Services | Astute Spruce</title>
+</svelte:head>
+
 <HeaderImage src={Img} class="min-h-64" />
 <ImageCredit author="Thomas Millot" url="https://unsplash.com/photos/y6X3oiDQQtY" />
 

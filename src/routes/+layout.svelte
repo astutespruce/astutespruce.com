@@ -2,10 +2,8 @@
     import { beforeNavigate, afterNavigate } from '$app/navigation'
     import { page } from '$app/state'
 
-    import { Header, Footer } from '$lib/components/layout'
+    import { Analytics, Header, Footer } from '$lib/components/layout'
     import '../app.css'
-
-    export const prerender = true
 
     let { children } = $props()
 
@@ -22,6 +20,8 @@
         }
     })
 </script>
+
+<Analytics />
 
 <Header />
 

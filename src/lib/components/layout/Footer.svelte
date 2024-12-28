@@ -1,7 +1,3 @@
-<script>
-    import { contactEmail } from '$lib/config'
-</script>
-
 <footer class="container mt-10">
     <div class="my-4 border-t-[3px] border-primary/50 pt-10">
         <h3 class="text-2xl leading-relaxed md:text-3xl">Get in touch:</h3>
@@ -15,7 +11,7 @@
                     Owner | Lead software engineer
                     <br />
                     Email:{' '}
-                    <a href={`mailto:${contactEmail}`}>bcward@astutespruce.com</a>
+                    <a href="mailto:bcward@astutespruce.com">bcward@astutespruce.com</a>
                     <br />
                     Phone: 541-250-9544
                     <br />

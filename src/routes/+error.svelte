@@ -1,7 +1,6 @@
 <script>
     import TriangeAlert from 'lucide-svelte/icons/triangle-alert'
     import { page } from '$app/state'
-    import { contactEmail } from '$lib/config'
     import { ImageCredit } from '$lib/components/image'
     import NotFoundImage from '$lib/assets/images/deanna-ritchie-227649-unsplash.jpg'
 
@@ -9,7 +8,11 @@
     console.error(page.error)
 </script>
 
-{#if page.status === 400}
+<svelte:head>
+    <title>{page.status} | Astute Spruce</title>
+</svelte:head>
+
+{#if page.status === 404}
     <div class="h-full w-full bg-cover py-12" style={`background-image: url(${NotFoundImage});`}>
         <div
             class="container max-w-[700px] border-2 border-foreground bg-muted p-12"
@@ -29,9 +32,8 @@
             </h1>
             <div class="mt-4 text-3xl">There was an unexpected error</div>
             <div class="mt-4 text-xl text-muted-foreground">
-                Please try again in a few minutes. If that still doesn't work, please <a href={`mailto:${contactEmail}`}
-                    >let us know</a
-                >!
+                Please try again in a few minutes. If that still doesn't work, please
+                <a href="mailto:bcward@astutespruce.com"> let us know</a>!
             </div>
         </div>
     </div>
