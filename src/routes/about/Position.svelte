@@ -31,7 +31,7 @@
     }: Position = $props()
 </script>
 
-<h3 class="mt-6 text-xl md:mt-12 md:text-3xl">{title}</h3>
+<h3>{title}</h3>
 
 <div class="text-lg md:text-xl">
     <a href={url}>{organization}</a>
@@ -56,7 +56,7 @@
 {/if}
 
 {#if projects}
-    <h4 class="mt-8 text-xl">Highlighted projects</h4>
+    <h4 class="mt-6">Highlighted projects</h4>
 
     <ul class="mt-2">
         {#each projects as project}

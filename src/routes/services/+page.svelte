@@ -15,13 +15,13 @@
 <ImageCredit author="Thomas Millot" url="https://unsplash.com/photos/y6X3oiDQQtY" />
 
 <div class="container pb-20">
-    <h1 class="mt-6 text-3xl md:text-5xl lg:text-6xl">How I can help you</h1>
+    <h1 class="mt-10">How I can help you</h1>
 
     <div class="mt-6 flex items-center gap-4 md:mt-12">
         <Globe class="text-muted-foreground" size="2.5rem" />
-        <h3 class="text-2xl md:text-4xl">Map & data visualization</h3>
+        <h3>Map & data visualization</h3>
     </div>
-    <p class="mt-4">
+    <p class="mt-2">
         I specialize in leveraging and creating cutting-edge web mapping and data visualization technologies to make
         scientific data more accessible and informative. I create custom solutions to meet domain specific needs because
         generic solutions simply do not work well for complex scientific data.
@@ -59,14 +59,14 @@
         </li>
     </ul>
 
-    <hr class="mt-6 border-t-2 border-primary/50 md:mt-12" />
+    <hr class="my-6 border-t-2 border-primary/50 md:my-12" />
 
-    <div class="mt-6 flex items-center gap-4 md:mt-12">
+    <div class="flex items-center gap-4">
         <ChartLine class="text-muted-foreground" size="2.5rem" />
-        <h3 class="text-2xl md:text-4xl">Data processing & analysis</h3>
+        <h3>Data processing & analysis</h3>
     </div>
 
-    <p class="mt-4">
+    <p class="mt-2">
         I am passionate about using my software development skills to help scientists and science-based organizations
         better use and interpret their data. I turn painfully slow and error-prone manual data processing into automated
         data pipelines, so that scientists can focus their scientific expertise on advancing scientific understanding.
@@ -95,14 +95,14 @@
         </li>
     </ul>
 
-    <hr class="mt-6 border-t-2 border-primary/50 md:mt-12" />
+    <hr class="my-6 border-t-2 border-primary/50 md:my-12" />
 
-    <div class="mt-6 flex items-center gap-4 md:mt-12">
+    <div class="flex items-center gap-4">
         <Database class="text-muted-foreground" size="2.5rem" />
-        <h3 class="text-2xl md:text-4xl">Data sharing</h3>
+        <h3>Data sharing</h3>
     </div>
 
-    <p class="mt-4">
+    <p class="mt-2">
         My professional career has been focused on making data more accessible. I help define and develop data sharing
         approaches to turn scientific data into broader impacts for a wide range of stakeholders.
         <br />
@@ -131,14 +131,14 @@
         </li>
     </ul>
 
-    <hr class="mt-6 border-t-2 border-primary/50 md:mt-12" />
+    <hr class="my-6 border-t-2 border-primary/50 md:my-12" />
 
-    <div class="mt-6 flex items-center gap-4 md:mt-12">
+    <div class="flex items-center gap-4">
         <MessageCircleMore class="text-muted-foreground" size="2.5rem" />
-        <h3 class="text-2xl md:text-4xl">Consulting</h3>
+        <h3>Consulting</h3>
     </div>
 
-    <p class="mt-4">
+    <p class="mt-2">
         Just need advice on how to approach a data visualization, processing, or sharing project? Need assistance
         leveraging the state of the art technologies to increase the impact of your organization? I am here to help.
     </p>

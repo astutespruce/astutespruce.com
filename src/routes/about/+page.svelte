@@ -37,26 +37,26 @@
         careful focus on maximizing impact, his projects are more effective and intuitive than many out-of-the-box solutions.
     </p>
 
-    <hr class="mt-10 border-t-2 border-primary/50 md:mt-20" />
+    <hr class="my-10 border-t-2 border-primary/50 md:my-20" />
 
-    <div class="flex items-baseline justify-between">
-        <h1 class="text-3xl md:text-5xl lg:text-6xl">Curriculum vitae</h1>
+    <div class="mb-10 flex flex-wrap items-baseline justify-between gap-4">
+        <h1>Curriculum vitae</h1>
         <div class="flex items-center gap-2 leading-tight text-accent-foreground md:text-xl">
             <Download />
-            <a href="/Brendan_C_Ward__Resume.pdf" download="Brendan_C_Ward__Resume.pdf"> Download resume </a>
+            <a href="/Brendan_C_Ward__Resume.pdf" download="Brendan_C_Ward__Resume.pdf">Download resume </a>
         </div>
     </div>
 
     {#each positions as position, i}
         {#if i > 0}
-            <hr class="mt-6 md:mt-12" />
+            <hr class="my-6 md:my-12" />
         {/if}
         <Position {...position} />
     {/each}
 
-    <hr class="mt-6 border-t-2 border-primary/50 md:mt-12" />
+    <hr class="my-6 border-t-2 border-primary/50 md:my-12" />
 
-    <h3 class="mt-6 text-2xl md:mt-12 md:text-3xl">Publications</h3>
+    <h3>Publications</h3>
 
     <p class="mt-4">
         Weller, T.J. and <b>B.C. Ward</b>. 2020. AMPlifying Bat Monitoring Across North America: an online portal shares
@@ -83,9 +83,9 @@
         Science 51(6): 616-632.
     </p>
 
-    <hr class="mt-6 border-t-2 border-primary/50 md:mt-12" />
+    <hr class="my-6 border-t-2 border-primary/50 md:my-12" />
 
-    <h3 class="mt-6 text-2xl md:mt-12 md:text-3xl">Technical reports</h3>
+    <h3>Technical reports</h3>
 
     <p class="mt-4">
         <b>Ward, B.C.</b>, M. Lundin, D. Harvey, J. Strittholt, G. Joseph, T. Comendant. 2016. California Water Planning

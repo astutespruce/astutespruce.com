@@ -1,6 +1,6 @@
 <footer class="container mt-10">
     <div class="my-4 border-t-[3px] border-primary/50 pt-10">
-        <h3 class="text-2xl leading-relaxed md:text-3xl">Get in touch:</h3>
+        <h4 class="underline decoration-muted-foreground underline-offset-4">Get in touch</h4>
         <div class="grid-cols-3 justify-between gap-10 md:grid">
             <div>
                 <div class="text-lg leading-relaxed">

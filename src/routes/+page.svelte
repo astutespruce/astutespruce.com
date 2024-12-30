@@ -1,6 +1,5 @@
 <script>
     import { ImageCredit } from '$lib/components/image'
-    import { Button } from '$lib/components/ui/button'
 </script>
 
 <svelte:head>
@@ -8,14 +7,10 @@
 </svelte:head>
 
 <div class="container mt-10">
-    <Button
-        onclick={() => {
-            throw new Error('Sentry Frontend Error')
-        }}>Sentry test</Button
-    >
-
-    <h1 class="text-5xl md:text-6xl lg:text-9xl">A complex world</h1>
-    <h2 class="mt-2 text-3xl md:text-5xl lg:mt-10 lg:text-5xl">needs simpler solutions.</h2>
+    <h1>
+        <div class="text-7xl md:text-8xl lg:text-9xl">A complex world</div>
+        <div class="mt-2 text-3xl md:text-5xl lg:mt-6 lg:text-6xl">needs simpler solutions.</div>
+    </h1>
 
     <hr class="mt-10" />
 
@@ -40,10 +35,10 @@
 <ImageCredit author="Patrick Hendry" url="https://unsplash.com/photos/_lofCeUHMOo" />
 
 <div class="container mt-6 md:mt-10">
-    <h2 class="text-4xl md:text-5xl">What makes me different?</h2>
-    <h3 class="mt-2 text-2xl md:mt-8 md:text-3xl">I bridge science and software.</h3>
+    <h1>What makes me different?</h1>
+    <h3 class="mt-10">I bridge science and software.</h3>
 
-    <p class="mt-10">
+    <p>
         With an advanced degree in landscape ecology and over 13 years professional experience in software engineering
         and geospatial technologies, I am highly effective at{' '}
         <b>bridging science and software</b> domains to capture the deep science domain experience of clients with
@@ -65,10 +60,10 @@
         </li>
     </ul>
 
-    <hr class="mt-10 md:mt-20" />
+    <hr class="my-10 md:my-20" />
 
-    <h3 class="mt-10 text-3xl md:text-4xl">I focus on impact</h3>
-    <div class="mt-4 grid-cols-5 gap-8 md:grid">
+    <h3>I focus on impact</h3>
+    <div class="grid-cols-5 gap-8 md:grid">
         <div class="col-span-2 pt-2">
             <enhanced:img src="$lib/assets/images/shane-rounce-682783-unsplash.jpg" alt="hands on tree" />
         </div>
@@ -97,10 +92,10 @@
         </div>
     </div>
 
-    <hr class="mt-10 md:mt-20" />
+    <hr class="my-10 md:my-20" />
 
-    <h3 class="mt-10 text-3xl md:text-4xl">I am highly collaborative</h3>
-    <div class="mt-4 grid-cols-5 gap-8 md:grid">
+    <h3>I am highly collaborative</h3>
+    <div class="grid-cols-5 gap-8 md:grid">
         <div class="col-span-3">
             <p class="mt-2 md:mt-0">
                 I firmly believe that we are going to achieve higher impact, together. While I am very self-driven and
@@ -123,10 +118,10 @@
         </div>
     </div>
 
-    <hr class="mt-10 md:mt-20" />
+    <hr class="my-10 md:my-20" />
 
-    <h3 class="mt-10 text-3xl md:text-4xl">I am pragmatic and focused on simplicity</h3>
-    <div class="mt-4 grid-cols-5 gap-8 md:grid">
+    <h3>I am focused on simplicity</h3>
+    <div class="grid-cols-5 gap-8 md:grid">
         <div class="col-span-2 pt-2">
             <enhanced:img src="$lib/assets/images/agathe-marty-651137-unsplash.jpg" alt="fern bud" />
         </div>
@@ -155,10 +150,10 @@
         </div>
     </div>
 
-    <hr class="mt-10 md:mt-20" />
+    <hr class="my-10 md:my-20" />
 
-    <h3 class="mt-10 text-3xl md:text-4xl">I am open source by default</h3>
-    <div class="mt-4 grid-cols-5 gap-8 md:grid">
+    <h3>I am open source by default</h3>
+    <div class="grid-cols-5 gap-8 md:grid">
         <div class="col-span-3">
             <p class="mt-2 md:mt-0">
                 I believe that our tools get better when they are shared with and used by more people, and that by
