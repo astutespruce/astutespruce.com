@@ -1,7 +1,7 @@
 <script>
     import { cn } from '$lib/utils'
 
-    const { url, author, class: className = '' } = $props()
+    const { author, url, class: className = '' } = $props()
 </script>
 
 <div class={cn('mr-2 text-end text-muted-foreground/50', className)}>
