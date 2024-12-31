@@ -2,26 +2,36 @@
     import type { Project } from './types'
     import ProjectSnippet from './ProjectSnippet.svelte'
 
-    const images = import.meta.glob('$projects/**/*.jpg', { eager: true, import: 'default' })
+    const images = import.meta.glob('$projects/**/*.jpg', {
+        eager: true,
+        import: 'default',
+        query: {
+            w: '1920;960;540',
+            sizes: '(min-width:1920px) 1920px, (min-width:1024px) 960px, (min-width:768px) 540px',
+            format: 'avif;webp;jpg',
+            as: 'picture',
+        },
+    })
     const paths = import.meta.glob('$projects/**/*.md', { eager: true })
+
     let projects = []
 
     for (const path in paths) {
         const file = paths[path]
         const slug = path.split('/').at(-2)
         if (slug && file && typeof file === 'object' && 'metadata' in file) {
-            const metadata = file.metadata as Omit<Project, 'slug,timestamp'>
-            const timestamp = new Date(metadata.startDate).getTime()
+            const metadata = file.metadata as Omit<Project, 'slug'>
             const imageKey = Object.keys(images).filter((m) => m.endsWith(metadata.banner.file))[0]
             const imageSrc = images[imageKey]
-            projects.push({ ...metadata, slug, timestamp, banner: { ...metadata.banner, src: imageSrc } })
+            projects.push({
+                ...metadata,
+                slug,
+                banner: { ...metadata.banner, src: imageSrc, order: metadata.order || 99 },
+            })
         }
     }
 
-    // sort most to least recent
-    projects = projects.sort((p1, p2) => p2.timestamp - p1.timestamp)
-
-    console.log('projects', projects)
+    projects = projects.sort((p1, p2) => p1.order - p2.order)
 </script>
 
 <svelte:head>

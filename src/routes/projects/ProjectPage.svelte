@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
     // add custom overrides of parsed markdown => html elements
     import { a } from '$lib/components/markdown'
 
@@ -19,11 +19,11 @@
     <title>{title} | Astute Spruce</title>
 </svelte:head>
 
-<HeaderImage src={img} class="min-h-64" />
-<ImageCredit author={banner.author} url={banner.url} />
+<HeaderImage src={img} class="min-h-64 bg-center" />
+<ImageCredit author={banner.author} url={banner.url} label={banner.label} />
 
 <div class="container mb-20">
-    <div class="flex text-muted-foreground">
+    <div class="mt-2 flex text-xs leading-tight text-muted-foreground sm:text-lg">
         <a href="/">Home</a>
         &nbsp;/&nbsp;
         <a href="/projects">Projects</a>
@@ -34,7 +34,7 @@
     <h1 class="mb-4 mt-10 text-5xl md:text-6xl">{title}</h1>
     <div class="text-2xl"><b>Client:</b> {client}</div>
 
-    <div class="my-4 text-lg text-muted-foreground">
+    <div class="my-4 hidden text-lg text-muted-foreground sm:block">
         {@html categories.join('&nbsp;&nbsp;|&nbsp;&nbsp;')}
     </div>
 
@@ -44,13 +44,13 @@
         </div>
     {/if}
 
-    <hr class="my-6" />
+    <hr class="my-6 md:my-12" />
 
     <div class="markdown-content">
         {@render children()}
     </div>
 
-    <hr class="my-6" />
+    <hr class="my-6 md:my-12" />
 
     <p class="font-bold">Technologies used:</p>
 

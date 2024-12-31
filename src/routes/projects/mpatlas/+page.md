@@ -4,12 +4,14 @@ client: Marine Conservation Institute
 url: https://mpatlas.org/
 startDate: '2020-02-01'
 endDate: 'present'
+order: 3
 banner:
     file: noaa-AQx2VH2731k-unsplash.jpg
     author: NOAA
     url: https://unsplash.com/photos/AQx2VH2731k
+    label: pod of melon-headed whales
 description: |
-    We have been working closely with the Marine Conservation Institute to develop and enhance the Marine Protection Atlas to more effectively synthesize key information about marine protection worldwide.  This project enables members of the marine conservation community to better access, understand, and communite key statistics describing marine protection at multiple levels around the world.
+    We have been working with the Marine Conservation Institute since 2020 to develop and enhance the Marine Protection Atlas to more effectively synthesize key information about marine protection worldwide.  This project enables members of the marine conservation community to better access, understand, and communite key statistics describing marine protection at multiple levels around the world.  The Marine Protection Atlas is a core component of Marine Conservation Institute's strategy to monitor and promote high levels of marine protection.
 categories:
     - Design
     - Front-end Development
@@ -19,6 +21,10 @@ tech:
     - [Javascript, GatsbyJS, React, MapboxGL]
     - [Python, Pandas, GeoPandas, Shapely, Numpy]
 ---
+
+<script>
+    import {ImageCredit} from '$lib/components/image'
+</script>
 
 ### Synthesizing global marine protection data
 
@@ -50,6 +56,8 @@ as a baseline about marine protected areas published by their respective countri
 <div class="h-10"></div>
 
 ![Photo of fish swimming](noaa-vlvc-7nb2U8-unsplash.jpg)
+
+<ImageCredit author="NOAA" url="https://unsplash.com/photos/vlvc-7nb2U8" />
 
 <div class="h-10"></div>
 
