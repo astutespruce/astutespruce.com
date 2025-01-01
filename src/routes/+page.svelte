@@ -14,7 +14,7 @@
 
     <hr class="mt-10" />
 
-    <p class="mt-10 text-2xl">
+    <p class="mt-10 text-3xl">
         Too often, we get caught up in the cleverness of our tools and lose sight of meeting real-world needs.
         <br />
         <br />

@@ -3,7 +3,7 @@
         dates: string
         name: string
         client: string
-        role: string
+        role?: string
     }
 
     interface Position {
@@ -63,9 +63,11 @@
             <li class="leading-snug">
                 {project.dates}:
                 {project.name} ({project.client}).
-                <div class="text-base italic text-muted-foreground">
-                    Role: {project.role}
-                </div>
+                {#if project.role}
+                    <div class="text-base italic text-muted-foreground">
+                        Role: {project.role}
+                    </div>
+                {/if}
             </li>
         {/each}
     </ul>

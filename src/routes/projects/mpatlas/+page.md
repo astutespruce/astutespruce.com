@@ -55,7 +55,7 @@ as a baseline about marine protected areas published by their respective countri
 
 <div class="h-10"></div>
 
-![Photo of fish swimming](noaa-vlvc-7nb2U8-unsplash.jpg)
+![Fish swimming](noaa-vlvc-7nb2U8-unsplash.jpg)
 
 <ImageCredit author="NOAA" url="https://unsplash.com/photos/vlvc-7nb2U8" />
 

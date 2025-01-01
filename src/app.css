@@ -1,40 +1,18 @@
+@import '@fontsource/atkinson-hyperlegible/400.css';
+@import '@fontsource/atkinson-hyperlegible/700.css';
+@import '@fontsource/atkinson-hyperlegible/400-italic.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+    html {
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+    }
+
     :root {
-        @font-face {
-            font-family: 'Cinzel';
-            src: url('/fonts/Cinzel-Bold.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Lato';
-            src: url('/fonts/Lato-Regular.woff2') format('woff2');
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Lato';
-            src: url('/fonts/Lato-Bold.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Lato';
-            src: url('/fonts/Lato-Italic.woff2') format('woff2');
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        font-family: Lato, ui-sans-serif, system-ui, sans-serif;
-
-        --background: 150 17% 98%;
+        --background: 150 17% 99%;
         --foreground: 0 0% 25%;
 
         --muted: 240 4.8% 95.9%;
@@ -54,9 +32,7 @@
         --secondary: 240 4.8% 95.9%;
         --secondary-foreground: 240 5.9% 10%;
 
-        /* --accent: 240 4.8% 95.9%;
-        --accent-foreground: 240 5.9% 10%; */
-        --accent-foreground: 0 61% 55%;
+        --accent-foreground: 0 59% 54%;
 
         --destructive: 0 72.2% 50.6%;
         --destructive-foreground: 0 0% 98%;
@@ -64,14 +40,6 @@
         --ring: 240 10% 3.9%;
 
         --radius: 0.5rem;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-        font-family: Cinzel, sans-serif;
-        font-weight: bold;
     }
 
     p {
@@ -123,15 +91,15 @@
         height: 100vh;
     }
     h1 {
-        @apply text-5xl md:text-6xl lg:text-7xl;
+        @apply text-5xl font-bold md:text-6xl lg:text-7xl;
     }
     h2 {
-        @apply text-4xl md:text-5xl;
+        @apply text-4xl font-bold md:text-5xl;
     }
     h3 {
-        @apply text-3xl md:text-4xl;
+        @apply text-3xl font-bold md:text-4xl;
     }
     h4 {
-        @apply text-2xl;
+        @apply text-2xl font-bold;
     }
 }

@@ -1,6 +1,7 @@
 <script>
     import Download from 'lucide-svelte/icons/file-down'
     import { HeaderImage, ImageCredit } from '$lib/components/image'
+    import { Button } from '$lib/components/ui/button'
     import Img from '$lib/assets/images/elias-arnar-1309173-unsplash.jpg'
 
     import Position from './Position.svelte'
@@ -41,10 +42,14 @@
 
     <div class="mb-10 flex flex-wrap items-baseline justify-between gap-4">
         <h1>Curriculum vitae</h1>
-        <div class="flex items-center gap-2 leading-tight text-accent-foreground md:text-xl">
+        <Button
+            href="/Brendan_C_Ward__Resume.pdf"
+            download="Brendan_C_Ward__Resume.pdf"
+            class="flex items-center gap-2 border bg-muted-foreground/10 leading-tight text-foreground hover:bg-muted-foreground/20 hover:no-underline md:text-xl"
+        >
             <Download />
-            <a href="/Brendan_C_Ward__Resume.pdf" download="Brendan_C_Ward__Resume.pdf">Download resume </a>
-        </div>
+            Download resume
+        </Button>
     </div>
 
     {#each positions as position, i}
