@@ -6,7 +6,6 @@ startDate: '2019-11-26'
 endDate: present
 order: 1
 banner:
-    file: 26871026541_48a8096dd9_o.jpg
     author: U.S. Fish and Wildlife Service Southeast Region
     label: black skimmers
     url: https://www.flickr.com/photos/usfwssoutheast/26871026541/

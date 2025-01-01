@@ -4,14 +4,15 @@
     import Database from 'lucide-svelte/icons/database-zap'
     import MessageCircleMore from 'lucide-svelte/icons/message-circle-more'
     import { HeaderImage, ImageCredit } from '$lib/components/image'
-    import Img from '$lib/assets/images/thomas-millot-1297305-unsplash.jpg'
+    import Img from '$lib/assets/images/thomas-millot-1297305-unsplash.jpg?format=avif;webp;jpg&w=4800;3200;1920;720&as=picture'
 </script>
 
 <svelte:head>
     <title>Services | Astute Spruce</title>
 </svelte:head>
 
-<HeaderImage src={Img} class="min-h-64" />
+<HeaderImage src={Img} class="h-64" />
+
 <ImageCredit author="Thomas Millot" url="https://unsplash.com/photos/y6X3oiDQQtY" />
 
 <div class="container pb-20">

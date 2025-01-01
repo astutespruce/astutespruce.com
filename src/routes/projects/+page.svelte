@@ -2,7 +2,7 @@
     import type { Project } from './types'
     import ProjectSnippet from './ProjectSnippet.svelte'
 
-    const images = import.meta.glob('$projects/**/*.jpg', {
+    const images = import.meta.glob('$projects/**/banner.jpg', {
         eager: true,
         import: 'default',
         query: {
@@ -12,7 +12,7 @@
             as: 'picture',
         },
     })
-    const paths = import.meta.glob('$projects/**/*.md', { eager: true })
+    const paths = import.meta.glob('$projects/**/+page.md', { eager: true })
 
     let projects = []
 
@@ -21,7 +21,7 @@
         const slug = path.split('/').at(-2)
         if (slug && file && typeof file === 'object' && 'metadata' in file) {
             const metadata = file.metadata as Omit<Project, 'slug'>
-            const imageKey = Object.keys(images).filter((m) => m.endsWith(metadata.banner.file))[0]
+            const imageKey = Object.keys(images).filter((m) => m.split('/').at(-2) === slug)[0]
             const imageSrc = images[imageKey]
             projects.push({
                 ...metadata,

@@ -6,10 +6,9 @@ endDate: present
 url: https://batamp.org
 order: 4
 banner:
-    file: 46056678782_45a8a24c3b_4k.jpg
-    author: Michael Durham, Minden Pictures, Bat Conservation International
-    label: Western Long-eared Myotis
-    url: https://flickr.com/photos/mypubliclands/46056678782/in/gallery-164298556@N06-72157699866716231/
+    author: Michael Durham
+    label: Hoary bat
+    url: https://www.flickr.com/photos/oregonstateuniversity/48546621027/
 description: |
     We recently started working with Conservation Science Global under a grant from the California Department of Fish & Wildlife to help aggregate data on hoary bats within California, with the ultimate goal of developing a range map for hoary bats that will be used to help manage this species and reduce impacts from renewable energy development.
 categories:
@@ -59,9 +58,9 @@ monitoring data for other seasons were typically uploaded to BatAMP instead.
 
 <div class="h-10"></div>
 
-![California leaf-nosed bat](31167324927_73d9c7c00a_k.jpg)
+![Hoary bat](7157755020_b9d906c47b_o.jpg)
 
-<ImageCredit author="Michael Durham / Minden Pictures, Bat Conservation International" url="https://flickr.com/photos/mypubliclands/31167324927/in/gallery-164298556@N06-72157699866716231/" label="California leaf-nosed bat" ></ImageCredit>
+<ImageCredit author="Kathleen Smith, Florida Fish and Wildlife Conservation Commission" url="https://www.flickr.com/photos/myfwcmedia/7157755020/" label="Hoary bat" ></ImageCredit>
 
 <div class="h-10"></div>
 

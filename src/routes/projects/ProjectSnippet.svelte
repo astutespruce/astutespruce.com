@@ -1,18 +1,8 @@
 <script lang="ts">
     import ArrowRight from 'lucide-svelte/icons/arrow-right'
+    import { ImageCredit } from '$lib/components/image'
     const { slug, title, client, description, banner, categories } = $props()
     const url = `/projects/${slug}`
-
-    const {
-        src: { sources, img },
-    } = banner
-
-    // NOTE: this assumes only one format per size
-    const sourceEntries = Object.entries(sources).map(([format, images]) => ({
-        format,
-        images,
-        type: `image/${format}`,
-    }))
 </script>
 
 <div>
@@ -21,14 +11,11 @@
         <div class="text-xl"><b>Client:</b> {client}</div>
     </div>
 
-    <div class="mt mb-2 mt-2">
-        <picture>
-            {#each sourceEntries as entry}
-                <source srcset={entry.images} type={entry.type} />
-            {/each}
-            <img src={img.src} alt={banner.label} />
-        </picture>
+    <div class="mt-2">
+        <enhanced:img src={banner.src} alt={banner.label} />
     </div>
+
+    <ImageCredit author={banner.author} url={banner.url} label={banner.label} />
 
     <div class="my-2 hidden text-muted-foreground md:block">
         {@html categories.join('&nbsp;&nbsp;|&nbsp;&nbsp;')}

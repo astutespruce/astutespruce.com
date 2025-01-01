@@ -6,7 +6,6 @@ startDate: '2020-02-01'
 endDate: 'present'
 order: 3
 banner:
-    file: noaa-AQx2VH2731k-unsplash.jpg
     author: NOAA
     url: https://unsplash.com/photos/AQx2VH2731k
     label: pod of melon-headed whales

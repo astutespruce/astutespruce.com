@@ -6,21 +6,30 @@
 </script>
 
 <script>
-    import { HeaderImage, ImageCredit } from '$lib/components/image'
-    const { title, client, banner, url, endDate, categories, tech, children } = $props()
+    import { page } from '$app/state'
+    import { ImageCredit } from '$lib/components/image'
+    const { title, client, banner, url, categories, tech, children } = $props()
 
-    // dynamically import header image
-    const images = import.meta.glob('$projects/**/*.jpg', { eager: true, import: 'default' })
-    const imageKey = Object.keys(images).filter((path) => path.endsWith(banner.file))[0]
+    const slug = page.url.pathname.split('/').at(-1)
+
+    // dynamically import banner image
+    const images = import.meta.glob('$projects/**/banner.jpg', {
+        eager: true,
+        import: 'default',
+        query: {
+            w: '1920;960;540',
+            sizes: '(min-width:1920px) 1920px, (min-width:1024px) 960px, (min-width:768px) 540px',
+            format: 'avif;webp;jpg',
+            as: 'picture',
+        },
+    })
+    const imageKey = Object.keys(images).filter((path) => path.split('/').at(-2) === slug)[0]
     const img = images[imageKey]
 </script>
 
 <svelte:head>
     <title>{title} | Astute Spruce</title>
 </svelte:head>
-
-<HeaderImage src={img} class="min-h-64 bg-center" />
-<ImageCredit author={banner.author} url={banner.url} label={banner.label} />
 
 <div class="container mb-20">
     <div class="mt-2 flex text-xs leading-tight text-muted-foreground sm:text-lg">
@@ -31,8 +40,11 @@
         {title}
     </div>
 
-    <h1 class="mb-4 mt-10 text-5xl md:text-6xl">{title}</h1>
-    <div class="text-2xl"><b>Client:</b> {client}</div>
+    <h1 class="mb-4 mt-10 text-5xl md:mb-8 md:text-6xl">{title}</h1>
+    <div class="mb-2 text-2xl"><b>Client:</b> {client}</div>
+
+    <enhanced:img src={img} alt="" />
+    <ImageCredit author={banner.author} url={banner.url} label={banner.label} />
 
     <div class="my-4 hidden text-lg text-muted-foreground sm:block">
         {@html categories.join('&nbsp;&nbsp;|&nbsp;&nbsp;')}

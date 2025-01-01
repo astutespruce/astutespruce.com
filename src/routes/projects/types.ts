@@ -1,5 +1,4 @@
 type Banner = {
-    file: string
     credits: string
     url?: string
     label?: string
