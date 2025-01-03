@@ -11,6 +11,10 @@
     <Content side="top">
         <nav class="gap-2 text-2xl text-accent-foreground [&>a]:decoration-2 [&>a]:underline-offset-4">
             <Close>
+                <a href="/" class="block" class:underline={page.url.pathname === '/'}>Home</a>
+            </Close>
+            <hr class="my-4" />
+            <Close>
                 <a href="/about" class="block" class:underline={page.url.pathname === '/about'}>About</a>
             </Close>
             <hr class="my-4" />
