@@ -3,6 +3,7 @@
     import ChartLine from 'lucide-svelte/icons/chart-line'
     import Database from 'lucide-svelte/icons/database-zap'
     import { HeaderImage, ImageCredit } from '$lib/components/image'
+    import Img from '$lib/assets/images/thomas-millot-1297305-unsplash.jpg?format=avif;webp;jpg&w=4800;3200;1920;720&as=picture'
 </script>
 
 <svelte:head>
@@ -13,10 +14,7 @@
     />
 </svelte:head>
 
-<HeaderImage
-    src="$lib/assets/images/thomas-millot-1297305-unsplash.jpg?format=avif;webp;jpg&w=4800;3200;1920;720&as=picture"
-    class="h-64"
-/>
+<HeaderImage src={Img} class="h-64" />
 
 <ImageCredit author="Thomas Millot" url="https://unsplash.com/photos/y6X3oiDQQtY" />
 

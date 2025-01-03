@@ -2,6 +2,7 @@
     import Download from 'lucide-svelte/icons/file-down'
     import { HeaderImage, ImageCredit } from '$lib/components/image'
     import { Button } from '$lib/components/ui/button'
+    import Img from '$lib/assets/images/elias-arnar-1309173-unsplash.jpg?format=avif;webp;jpg&w=4800;3200;1920;720&as=picture'
 
     import Position from './Position.svelte'
     import { positions } from './positions'
@@ -15,10 +16,7 @@
     />
 </svelte:head>
 
-<HeaderImage
-    src="$lib/assets/images/elias-arnar-1309173-unsplash.jpg?format=avif;webp;jpg&w=4800;3200;1920;720&as=picture"
-    class="h-64"
-/>
+<HeaderImage src={Img} class="h-64" />
 <ImageCredit author="Elias Arnar" url="https://unsplash.com/photos/7efP-a8ZK54" />
 
 <div class="container pb-20">
