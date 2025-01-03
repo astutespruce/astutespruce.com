@@ -30,8 +30,8 @@
         Each step of the way, I collaborate closely with partners to maximize impact.
     </p>
 
-    <enhanced:img src="$lib/assets/images/patrick-hendry-431197-unsplash.jpg" alt="aspens" class="mt-20" />
-    <ImageCredit author="Patrick Hendry" url="https://unsplash.com/photos/_lofCeUHMOo" />
+    <enhanced:img src="$lib/assets/images/pine-watt-2Hzmz15wGik-unsplash.jpg" alt="" class="mt-10 md:mt-20" />
+    <ImageCredit author="Pine Watt" url="https://unsplash.com/photos/aerial-shot-of-forest-2Hzmz15wGik" />
 
     <h1 class="mt-10 md:mt-20">What makes me different?</h1>
     <h3 class="mt-10">I bridge science and software.</h3>
