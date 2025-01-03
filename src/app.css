@@ -1,0 +1,105 @@
+@import '@fontsource/atkinson-hyperlegible/400.css';
+@import '@fontsource/atkinson-hyperlegible/700.css';
+@import '@fontsource/atkinson-hyperlegible/400-italic.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Atkinson Hyperlegible', sans-serif;
+    }
+
+    :root {
+        --background: 150 17% 99%;
+        --foreground: 0 0% 25%;
+
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 3.9%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%;
+
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+
+        --primary: 133 18% 61%;
+
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 240 5.9% 10%;
+
+        --accent-foreground: 0 59% 54%;
+
+        --destructive: 0 72.2% 50.6%;
+        --destructive-foreground: 0 0% 98%;
+
+        --ring: 240 10% 3.9%;
+
+        --radius: 0.5rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+
+    a {
+        color: hsl(var(--accent-foreground));
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    ul {
+        list-style: disc;
+        font-size: 1.25rem;
+        padding-left: 1rem;
+    }
+
+    ul li {
+        margin-left: 1rem;
+    }
+
+    ul li + li {
+        margin-top: 0.75rem;
+    }
+
+    .markdown-content {
+        h3 {
+            margin-bottom: 0.75rem;
+        }
+
+        p + p {
+            margin-top: 2rem;
+        }
+
+        p + ul {
+            margin-top: 1rem;
+        }
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        height: 100vh;
+    }
+    h1 {
+        @apply text-5xl font-bold md:text-6xl lg:text-7xl;
+    }
+    h2 {
+        @apply text-4xl font-bold md:text-5xl;
+    }
+    h3 {
+        @apply text-3xl font-bold md:text-4xl;
+    }
+    h4 {
+        @apply text-2xl font-bold;
+    }
+}
