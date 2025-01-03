@@ -2,16 +2,21 @@
     import Globe from 'lucide-svelte/icons/globe'
     import ChartLine from 'lucide-svelte/icons/chart-line'
     import Database from 'lucide-svelte/icons/database-zap'
-    import MessageCircleMore from 'lucide-svelte/icons/message-circle-more'
     import { HeaderImage, ImageCredit } from '$lib/components/image'
-    import Img from '$lib/assets/images/thomas-millot-1297305-unsplash.jpg?format=avif;webp;jpg&w=4800;3200;1920;720&as=picture'
 </script>
 
 <svelte:head>
     <title>Services | Astute Spruce</title>
+    <meta
+        name="description"
+        content="Astute Spruce, LLC helps science-based organizations create intuitive data exploration tools and robust data processing pipelines for scientific data."
+    />
 </svelte:head>
 
-<HeaderImage src={Img} class="h-64" />
+<HeaderImage
+    src="$lib/assets/images/thomas-millot-1297305-unsplash.jpg?format=avif;webp;jpg&w=4800;3200;1920;720&as=picture"
+    class="h-64"
+/>
 
 <ImageCredit author="Thomas Millot" url="https://unsplash.com/photos/y6X3oiDQQtY" />
 

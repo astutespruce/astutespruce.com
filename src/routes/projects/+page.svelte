@@ -36,6 +36,10 @@
 
 <svelte:head>
     <title>Projects | Astute Spruce</title>
+    <meta
+        name="description"
+        content="Astute Spruce, LLC has helped clients create intuitive and meaningful data exploration tools and data processing pipelines for scientific data."
+    />
 </svelte:head>
 
 <div class="container pb-20">

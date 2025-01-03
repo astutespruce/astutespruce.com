@@ -5,10 +5,11 @@
     export { a }
 </script>
 
-<script>
+<script lang="ts">
     import { page } from '$app/state'
     import { ImageCredit } from '$lib/components/image'
-    const { title, client, banner, url, categories, tech, children } = $props()
+    import type { ImageType } from '$lib/components/image/types'
+    const { title, description, client, banner, url, categories, tech, children } = $props()
 
     const slug = page.url.pathname.split('/').at(-1)
 
@@ -24,11 +25,12 @@
         },
     })
     const imageKey = Object.keys(images).filter((path) => path.split('/').at(-2) === slug)[0]
-    const img = images[imageKey]
+    const img = images[imageKey] as ImageType
 </script>
 
 <svelte:head>
     <title>{title} | Astute Spruce</title>
+    <meta name="description" content={description} />
 </svelte:head>
 
 <div class="container mb-20">

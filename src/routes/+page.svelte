@@ -4,6 +4,10 @@
 
 <svelte:head>
     <title>Astute Spruce</title>
+    <meta
+        name="description"
+        content="Astute Spruce, LLC helps science-based organizations create intuitive data exploration tools and robust data processing pipelines for scientific data."
+    />
 </svelte:head>
 
 <div class="container mt-10 pb-20">
