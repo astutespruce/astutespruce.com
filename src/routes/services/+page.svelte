@@ -33,30 +33,25 @@
 
     <ul class="mt-4">
         <li>
-            I am an expert in{' '}
-            <a href="https://leafletjs.com/">Leaflet</a>, a web-mapping library perfect for simpler projects. I created
-            several{' '}
-            <a href="https://github.com/search?utf8=%E2%9C%93&q=topic%3Aleaflet+org%3Aconsbio+&type=">
-                open-source plugins
-            </a>{' '}
-            for common components across projects.
-        </li>
-        <li>
-            I am an expert in{' '}
-            <a href="https://github.com/mapbox/mapbox-gl-js"> Mapbox GL </a>
-            , an advanced web-mapping library with high performance for complex data. I created a{' '}
-            <a href="https://github.com/consbio/mbgl-renderer"> library for making map images </a>{' '}
+            I am an expert in
+            <a href="https://github.com/mapbox/mapbox-gl-js" target="_blank"> Mapbox GL </a> /
+            <a href="https://github.com/maplibre/maplibre-gl-js" target="_blank">MapLibre GL JS</a>, which are advanced
+            web-mapping libraries with high performance for complex data. I created a
+            <a href="https://github.com/brendan-ward/pymgl" target="_blank"> library</a> on top of
+            <a href="https://github.com/maplibre/maplibre-native" target="_blank">MapLibre Native</a> for making map images
             for offline documents, such as downloadable reports.
         </li>
         <li>
-            I created a lightweight{' '}
-            <a href="https://github.com/consbio/mbtileserver"> image and vector map tile server </a>{' '}
+            I created a lightweight
+            <a href="https://github.com/consbio/mbtileserver" target="_blank"> image and vector map tile server </a>
             used across several projects to save costs and maintenance headaches.
         </li>
         <li>
-            I developed a novel approach to{' '}
-            <a href="https://github.com/brendan-ward/datatiles"> encoding raster data </a>{' '}
-            to power real-time data exploration in the browser without requiring complex map-server technology.
+            I developed a novel approach to encoding raster data to power pixel-level details and dynamic filtering in
+            the browser without requiring complex map-server technology, and created a
+            <a href="https://github.com/brendan-ward/rastertiler-rs" target="_blank">tile rendering tool</a>
+            using Rust for high performance. See it used in the
+            <a href="/projects/southeast-blueprint-explorer">Southeast Conservation Blueprint Explorer</a>.
         </li>
     </ul>
 
@@ -78,21 +73,23 @@
 
     <ul class="mt-4">
         <li>
-            I developed a rule-based classification tool to help vegetation ecologists classify information from many
-            thousands of field plots into ecologically-meaningful classes.
+            I developed a sophisticated data processing pipeline to process millions of aquatic barriers on millions of
+            river and stream segments across the U.S. to help measure aquatic connectivity as part of the
+            <a href="/projects/national-barrier-prioritization-tool"
+                >National Aquatic Barrier Inventory & Prioritization Tool</a
+            >
         </li>
         <li>
-            I created an intuitive{' '}
-            <a href="https://github.com/brendan-ward/echoclean"> rule-based classification tool </a>{' '}
+            I created an <a href="/projects/nzdoc">intuitive budget allocation application</a> to help staff in New Zealand's
+            Department of Conservation explore tradeoffs in achieving conservation outcomes based on strategic goals and
+            finite resources.
+        </li>
+        <li>
+            I created an intuitive
+            <a href="https://github.com/brendan-ward/echoclean" target="_blank"> rule-based classification tool </a>
             to help bat ecologists leverage expert knowledge to overcome shortcomings in automatic classification tools.
             This allows them to focus their limited time on manual inspection of fewer, more problematic records. This approach
             allows ecologists to define rules independent of the underlying software.
-        </li>
-        <li>
-            When existing tools could not scale to larger volumes of data, seriously jeopardizing my clients&apos;
-            ability to meet their deadlines, I created a new data processing pipeline to efficiently process the most
-            detailed data on rivers and streams in the U.S. This allowed us to leverage higher quality data and still
-            meet critical deadlines.
         </li>
     </ul>
 
@@ -114,33 +111,23 @@
 
     <ul class="mt-4">
         <li>
-            I led the development team at the{' '}
-            <a href="https://consbio.org"> Conservation Biology Institute </a>{' '}
-            that created the largest and most functional conservation data sharing platform in the world:{' '}
-            <a href="https://databasin.org">Data Basin</a>.
+            I developed the <a href="/projects/mpatlas">Marine Protection Atlas</a>
+            for the <a href="https://marine-conservation.org/" target="_blank">Marine Conservation Institute</a> to help
+            them share the latest scientific assessments of marine protection around the world.
         </li>
         <li>
-            I have successfully led multi-organization teams to define, pilot, and implement cross-organization data
-            integration. These leverage the collective strengths, domain expertise, and data ownership of each
-            organization to amplify the impacts of the data created and managed by each partner.
+            I developed the <a href="https://batamp.org" target="_blank"
+                >Bat Acoustic Monitoring Portal Visualization Tool</a
+            >
+            in partnership with the U.S. Forest Service to enable members of the bat monitoring and conservation community
+            to explore acoustic data records across North America. I am currently expanding it to better provide data for
+            <a href="/projects/hoary-bat">hoary bats in California</a>.
         </li>
         <li>
-            I led the data management and delivery of two region-wide ecological assessment projects, which involved
-            several hundred individual deliverables. I developed data pipelines to standardize data format, structure,
-            and documentation - which resulted in some of the highest quality deliverables for our clients compared to
-            other contractors responsible for other regions.
+            I led the development team at the
+            <a href="https://consbio.org" target="_blank"> Conservation Biology Institute </a>
+            that created the largest and most functional conservation data sharing platform in the world:
+            <a href="https://databasin.org" target="_blank">Data Basin</a>.
         </li>
     </ul>
-
-    <hr class="my-6 border-t-2 border-primary/50 md:my-12" />
-
-    <div class="flex items-center gap-4">
-        <MessageCircleMore class="text-muted-foreground" size="2.5rem" />
-        <h3>Consulting</h3>
-    </div>
-
-    <p class="mt-2">
-        Just need advice on how to approach a data visualization, processing, or sharing project? Need assistance
-        leveraging the state of the art technologies to increase the impact of your organization? I am here to help.
-    </p>
 </div>

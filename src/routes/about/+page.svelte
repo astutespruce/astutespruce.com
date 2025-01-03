@@ -98,7 +98,7 @@
         <br />
         <br />
         Multiple authors. 2014. Landscape Conservation Cooperative - Integrated Data Management Network - Toolshed. Prepared
-        for the U.S. Fish and Wildlife Service.{' '}
+        for the U.S. Fish and Wildlife Service.
         <a
             href="https://lccnetwork.org/project/integrated-data-management-network-lccs-and-partners-framework-coordinated-data-discovery-0"
         >
@@ -108,13 +108,13 @@
         <br />
         Strittholt, J.R., S.A. Bryce, <b>B.C. Ward</b>, and D.M. Bachelet. 2012. Sonoran Desert Rapid Ecoregional
         Assessment Report. Prepared for the U.S. Department of the Interior, Bureau of Land Management, Denver,
-        Colorado.{' '}
+        Colorado.
         <a href="https://landscape.blm.gov/REA_General_Docs/SOD_Final_Report_Body.pdf"> Access report. </a>
         <br />
         <br />
         Bryce, S.A., J.R. Strittholt, <b>B.C. Ward</b>, and D.M. Bachelet. 2012. Colorado Plateau Rapid Ecoregional
         Assessment Report. Prepared for the U.S. Department of the Interior, Bureau of Land Management, Denver,
-        Colorado.{' '}
+        Colorado.
         <a href="https://landscape.blm.gov/REA_General_Docs/COP_Final_Report_Body.pdf"> Access report. </a>
     </p>
 </div>

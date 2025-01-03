@@ -40,7 +40,7 @@
 
     <p>
         With an advanced degree in landscape ecology and over 13 years professional experience in software engineering
-        and geospatial technologies, I am highly effective at{' '}
+        and geospatial technologies, I am highly effective at
         <b>bridging science and software</b> domains to capture the deep science domain experience of clients with
         cutting edge tools make that science accessible and engaging to their audience.
         <br />
@@ -128,7 +128,7 @@
         <div class="col-span-3">
             <p class="mt-2 md:mt-0">
                 It is easy to get caught up in hype and shiny tools. The tools are only a means to an end: if those
-                tools are too complex, we spend all our time on them instead of what we should really be focused on:{' '}
+                tools are too complex, we spend all our time on them instead of what we should really be focused on:
                 <i>impact</i>. Often, when trying to visualize information, teams get carried away with adding power
                 tools for advanced users - only to find in the process that they&apos;ve alienated their core audience
                 and missed their opportunity to have real impact.

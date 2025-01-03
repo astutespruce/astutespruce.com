@@ -119,7 +119,7 @@ Contributed to CBI strategic direction and business development.
         startDate: '2004',
         endDate: '2007',
         description: `
-I led the historical fire regime mapping and modeling team within the{' '}
+I led the historical fire regime mapping and modeling team within the
 <a href="https://www.landfire.gov/">LANDFIRE project</a>, a highly-ambitious
 project to quantify current vegetation cover, potential vegetation, fire risk and behavior, and
 departure from historical conditions across the U.S.

@@ -10,7 +10,7 @@
                     <br />
                     Owner | Lead software engineer
                     <br />
-                    Email:{' '}
+                    Email:
                     <a href="mailto:bcward@astutespruce.com">bcward@astutespruce.com</a>
                     <br />
                     Phone: 541-250-9544
