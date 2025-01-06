@@ -7,7 +7,6 @@
     import { page } from '$app/state'
 
     import { Analytics, Header, Footer } from '$lib/components/layout'
-
     let { children } = $props()
 
     // reset the scroll to top on navigation

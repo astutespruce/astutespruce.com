@@ -1,0 +1,2 @@
+# redirect everything to index.html if not found
+/* /index.html 200
